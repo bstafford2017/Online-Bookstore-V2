@@ -52,7 +52,7 @@
                 $.ajax({
                     type: "post",
                     url: "cgi-bin/login.cgi",
-                    data: {"username": username,"password": password}
+                    data: {"username": username,"password": password},
                     success: function(data){
                         if(data.stringify().contains("Error")){
                             $('#alert').empty();
