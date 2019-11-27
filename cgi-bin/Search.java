@@ -39,6 +39,8 @@ public class Search {
             String query = "SELECT COUNT(*), isbn, title, price, COLUMN_VALUE FROM book b, table(b.subjects) ";
             if(args.length > 0) {
                 query += "WHERE lower(title) IN ('" + args[0].trim().toLowerCase() + "') GROUP BY isbn, title, price, COLUMN_VALUE ORDER BY COUNT(*) DESC";
+            } else {
+                query += "GROUP BY isbn, title, price, COLUMN_VALUE";
             }
             ResultSet rset = stmt.executeQuery(query);
             while(rset.next()){
