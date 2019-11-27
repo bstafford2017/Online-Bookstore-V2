@@ -17,7 +17,7 @@ public class Subject {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            ResultSet rset = stmt.executeQuery("SELECT COLUMN_VALUE FROM book b, table(b.subjects)");
+            ResultSet rset = stmt.executeQuery("SELECT DISTINCT COLUMN_VALUE FROM book b, table(b.subjects)");
             System.out.println("Content-type: text/html\n\n");
             int rowCounter = 0;
             while(rset.next()){
