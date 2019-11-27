@@ -62,7 +62,7 @@
         </form>
         <p id="success" style="color: green;"></p>
         <p id="error" style="color: red;"></p>
-        <form class="col-sm-6 offset-sm-2">
+        <form class="col-sm-2 offset-sm-5">
             <label>Source Password:</label>
             <input id="pass" type="password" class="form-control" required/>
             <button id="source" type="submit" class="btn btn-dark">Display</button>
