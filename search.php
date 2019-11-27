@@ -40,7 +40,7 @@
                 <small id="search-error" class="form-text text-muted" style="color: red;"></small>
                 <input id="search-input" type="text" class="col-sm-8 offset-sm-2" placeholder="Search . . . "/>
             </div>
-            <div class="row">
+            <div class="row" style="margin-top: 2%;">
                 <button id="clear" type="submit" class="col-sm-2 offset-sm-2 btn btn-dark">Clear all</button>
                 <button id="search" type="submit" class="col-sm-2 offset-sm-1 btn btn-dark">Search</button>
                 <button id="purchase" type="submit" class="col-sm-2 offset-sm-1 btn btn-dark">Purchase</button>

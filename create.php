@@ -53,15 +53,13 @@
             </div>
             <div class="form-group">
                 <label>All Subjects:</label>
-                <div id="all-subjects" class="col-sm-12 bg-dark text-white" style="margin-bottom: 2%;"></div>
+                <div id="all-subjects" class="col-sm-8 offset-sm-2 bg-dark text-white"></div>
                 <label>Subjects</label>
                 <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Engineering"/>
                 <p id="subjects-error" class="form-text text-muted" style="color: red;"></p>
             </div>
             <button id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Create</button>
         </form>
-        <p id="success" style="color: green;"></p>
-        <p id="error" style="color: red;"></p>
         <form class="col-sm-4 offset-sm-4">
             <label>Source Password:</label>
             <input id="pass" type="password" class="form-control" style="display: inline" required/>

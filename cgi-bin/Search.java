@@ -36,7 +36,17 @@ public class Search {
         Connection conn = ods.getConnection();
         Statement stmt = conn.createStatement();
         try {
-            LinkedList<Tuple> list = new LinkedList<>();
+            String query = "SELECT COUNT(*), isbn, title, price, COLUMN_VALUE, COUNT(*) FROM book b, table(b.subjects) WHERE lower(title) IN ('" + args[0].trim() + "') GROUP BY title, COLUMN_VALUE ORDER BY COUNT(*) DESC;"
+            ResultSet rset = stmt.executeQuery(query);
+            while(rset.next()){
+                System.out.println("<tr scope=\"col\">");
+                System.out.println("<td id=\"count\">" + rset.getString(1) + "</td>");
+                System.out.println("<td id=\"isbn\">" + rset.getString(2) + "</td>");
+                System.out.println("<td id=\"title\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?isbn=" + rset.getString(2) + "\">" + rset.getString(3) + "</a></td>");
+                System.out.println("<td id=\"price\" scope=\"col\">" + rset.getString(4) + "</td>");
+                System.out.println("<td id=\"subject\" scope=\"col\">" + rset.getString(5) + "</td></tr>");
+            }
+            /*LinkedList<Tuple> list = new LinkedList<>();
             String query = "select book.isbn, book.title, book.price, subject.subject_name from book join subjects on book.isbn = subjects.isbn join subject on subject.subject_id = subjects.s_id ";
             // Add all subjects to be 'OR'ed in query
             for(int i = 0; i < args.length; i++){
@@ -82,7 +92,7 @@ public class Search {
                     System.out.println("<a href=\"cgi-bin/hyperlink.cgi?subjects=" + str.replace(" ", "-") + "\">" + str + "</a> ");
                 }
                 System.out.println("</td></tr>");
-            }
+            }*/
         }
         catch (SQLException ex) {
             System.out.println(ex);
