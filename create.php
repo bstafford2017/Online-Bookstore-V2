@@ -63,8 +63,9 @@
         <p id="success" style="color: green;"></p>
         <p id="error" style="color: red;"></p>
         <form>
-            <input id="pass" type="password" class="form-control"/>
-            <button id="source" type="submit" class="col-sm-2 offset-sm-3 btn btn-dark">Update</button>
+            <label>Source Password:</label>
+            <input id="pass" type="password" class="form-control col-sm-2 offset-sm-3"/>
+            <button id="source" type="submit" class="col-sm-2 offset-sm-4 btn btn-dark">Display</button>
         </form>
         <div id="display-source"></div>
         <?php
@@ -102,6 +103,7 @@
 
                 //subjects = subjects.replace(" ", "-");
                 let json = "isbn=" + isbn + "&title=" + title + "&price=" + price + "&subjects=" + subjects;
+                console.log(json);
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/create.cgi",
