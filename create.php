@@ -62,7 +62,10 @@
         </form>
         <p id="success" style="color: green;"></p>
         <p id="error" style="color: red;"></p>
-        <p><a id="source" href="#">View Source</a></p>
+        <form>
+            <input id="pass" type="password" class="form-control"/>
+            <button id="source" type="submit" class="col-sm-2 offset-sm-3 btn btn-dark">Update</button>
+        </form>
         <div id="display-source"></div>
         <?php
             include 'footer.php';
@@ -70,10 +73,11 @@
         <script>
             $('#source').click(function(e){
                 e.preventDefault();
+                let pass = $('#pass');
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/source.cgi",
-                    data: {filename: "create"},
+                    data: {filename: "create", password: pass},
                     success: function(data){
                         $('body').empty();    
                         $('body').append("<pre>" + data + "</pre>");

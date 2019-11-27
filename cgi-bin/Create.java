@@ -39,8 +39,9 @@ public class Create {
                         insertBook = insertBook + "'" + args[i].trim() + "', ";
                     }
                 }
-                insertBook += ")";
+                insertBook += "))";
             }
+            System.out.println(insertBook);
             stmt.executeQuery(insertBook);
 
             stmt.close();
