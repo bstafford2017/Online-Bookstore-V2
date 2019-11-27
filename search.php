@@ -98,7 +98,7 @@
             $("#search").click(function(e){
                 e.preventDefault();
 
-                let search;
+                let search = "";
                 if($('#search-input').val()){
                     search = $('#search-input').val() + "+";
                 }
