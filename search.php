@@ -97,14 +97,18 @@
             
             $("#search").click(function(e){
                 e.preventDefault();
-                let search = $('#search-input').val() + "+";
+
+                let search;
+                if($('#search-input').val()){
+                    search = $('#search-input').val() + "+";
+                }
 
                 $("input:checkbox:checked").each(function(){
                     search = search + $(this).val() + "+";
                 });
 
                 search = search.substring(0, search.length - 1);
-
+                
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/search.cgi",
