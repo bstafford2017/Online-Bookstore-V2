@@ -8,7 +8,7 @@ my $price = $query->param('price');
 my $isbn = $query->param('isbn');
 my $subjects = $query->param('subjects');
 
-if(!defined $title && !defined $price && !defined $isbn && !defined $subjects){
+if(!defined $title && !defined $price && !defined $isbn){
     exit(0);
 }
 
@@ -27,6 +27,9 @@ my $compile = "/usr/bin/javac Create.java";
 system($compile);
 
 my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Create ";
-$cmd = $cmd . " " . $isbn . " " . $title . " " . $price . " " . $subjects;
+$cmd = $cmd . " " . $isbn . " " . $title . " " . $price;
+if(defined $subjects){
+    $cmd = $cmd . " " . $subjects;
+}
 system($cmd);
 print($cmd);

@@ -33,7 +33,11 @@ public class Create {
             } else {
                 insertBook += "subject_table(";
                 for(int i = 3; i < args.length; i++){
-                    insertBook += args[i].trim();
+                    if(i == args.length - 1){
+                        insertBook = insertBook + "'" + args[i].trim() + "'";
+                    } else {
+                        insertBook = insertBook + "'" + args[i].trim() + "', ";
+                    }
                 }
                 insertBook += ")";
             }
