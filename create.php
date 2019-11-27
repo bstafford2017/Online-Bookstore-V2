@@ -94,20 +94,19 @@
                 });
             });
             $('#submit').click(function(e){
-                //e.preventDefault();
+                e.preventDefault();
                 let isbn = $('#submit').parents('form').find('#isbn').val();
                 let title = $('#submit').parents('form').find('#book-title').val();
                 let price = $('#submit').parents('form').find('#price').val();
-                let subjects = $('#submit').parents('form').find('#subjects').val();
+                let subjects = $('#submit').parents('form').find('#subjects').val() + " ";
                 title = title.replace(/ /g, "-");
 
                 $("input:checkbox:checked").each(function(){
-                    subjects += $(this).parents('form').find('#subject').val() + " ";
+                    subjects += $(this).val();
                 });
-
                 //subjects = subjects.replace(" ", "-");
                 let json = "isbn=" + isbn + "&title=" + title + "&price=" + price + "&subjects=" + subjects;
-                console.log(json);
+                alert(json);
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/create.cgi",

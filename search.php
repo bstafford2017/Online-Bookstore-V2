@@ -37,7 +37,7 @@
         <form id="form">
             <div id="subject" class="col-sm-8 offset-sm-2 bg-dark text-white" style="margin-bottom: 2%;"><h3 style="text-align:center;">Subjects:</h3></div>
             <div class="row">
-                <input id="search-input" type="text" class="col-sm-8 offset-sm-2" placeholder="Search . . . "/>
+                <input id="search-input" type="text" class="col-sm-8 offset-sm-2" placeholder="Search by subjects . . . "/>
             </div>
             <div class="row" style="margin-top: 2%;">
                 <button id="clear" type="submit" class="col-sm-2 offset-sm-2 btn btn-dark">Clear all</button>
