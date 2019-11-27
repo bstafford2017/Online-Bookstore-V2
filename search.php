@@ -37,7 +37,6 @@
         <form id="form">
             <div id="subject" class="col-sm-8 offset-sm-2 bg-dark text-white" style="margin-bottom: 2%;"><h3 style="text-align:center;">Subjects:</h3></div>
             <div class="row">
-                <small id="search-error" class="form-text text-muted" style="color: red;"></small>
                 <input id="search-input" type="text" class="col-sm-8 offset-sm-2" placeholder="Search . . . "/>
             </div>
             <div class="row" style="margin-top: 2%;">
@@ -98,7 +97,7 @@
             
             $("#search").click(function(e){
                 e.preventDefault();
-                let search = $('#search-input');
+                let search = $('#search-input').val();
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/search.cgi",
