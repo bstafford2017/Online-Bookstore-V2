@@ -17,9 +17,8 @@ public class Clear {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            stmt.executeUpdate("delete from subjects");
-            stmt.executeUpdate("delete from subject");
-            stmt.executeUpdate("delete from book");
+            stmt.executeUpdate("DELETE FROM customer");
+            stmt.executeUpdate("DELETE FROM book");
             System.out.println("Content-type: text/html\n\n");
             stmt.close();
         }

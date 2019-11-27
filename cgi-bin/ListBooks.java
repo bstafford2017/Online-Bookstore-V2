@@ -17,7 +17,7 @@ public class ListBooks {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            ResultSet rset = stmt.executeQuery("select isbn, title, price from book");
+            ResultSet rset = stmt.executeQuery("SELECT isbn, title, price FROM book");
             int rowCounter = 0;
             while(rset.next()){
                 System.out.println("<tr id=\"" + rowCounter + "\" scope=\"col\">");

@@ -15,7 +15,7 @@ public class Hyperlink2 {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            String query = "select book.title, book.isbn, subject.subject_name from book join subjects on subjects.isbn = book.isbn join subject on subject.subject_id = subjects.s_id where subject.subject_name like '%" + args[0].trim().replace("-", " ") + "%'";
+            String query = "SELECT title, isbn, COLUMN_VALUE FROM book WHERE COLUMN_VALUE = '%" + args[0].trim().replace("-", " ") + "%'";
             ResultSet rset = stmt.executeQuery(query);
             int counter = 0;
             while(rset.next()){

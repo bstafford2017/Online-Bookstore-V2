@@ -25,35 +25,15 @@ public class Create {
             for(int i = 3; i < args.length; i++){
                 args[i] = args[i].replaceAll("-", " ");
             }
-            String insertBook = "insert into book(isbn, title, price) values (" + args[0] + ", '" + args[1] + "', " + args[2] + ")";
+
+            // Insert into books table
+            String insertBook = "INSERT INTO book (isbn, title, price, subjects) VALUES (" + args[0].trim() +", '" + args[1].trim() + "', " + args[2].trim() + ", subject_table(";
+            for(int i = 3; i < args.length; i++){
+                insertBook += args[i].trim();
+            }
+            insertBook += ")";
             stmt.executeQuery(insertBook);
 
-            // Loop through all subjects
-            for(int i = 3; i < args.length; i++){
-                String getSubjectId = "select subject_id from subject where subject_name = '" + args[i] + "'";
-                ResultSet rset = stmt.executeQuery(getSubjectId);
-                // If subject is already in table
-                if(rset.next()){
-                    // Only needs to be inserted into subjects (joining table)
-                    String subjectId = rset.getString(1);
-                    String insertSubjects = "insert into subjects(isbn, s_id) values (" + args[0] + ", " + subjectId + ")";
-                    stmt.executeQuery(insertSubjects);
-                } else {
-                    // Insert into subject (stores names)
-                    String insertSubject = "insert into subject(subject_name) values ('" + args[i] + "')";
-                    stmt.executeQuery(insertSubject);
-                    // Get subject ID of new insert
-                    String getNewId = "select subject_id from subject where subject_name = '" + args[i] + "'";
-                    ResultSet newSet = stmt.executeQuery(getNewId);
-                    if(newSet.next()){
-                        // Insert into subjects (joining table)
-                        String insertSubjects = "insert into subjects(isbn, s_id) values (" + args[0] + ", " + newSet.getString(1) + ")";
-                        stmt.executeQuery(insertSubjects);
-                    }
-                    newSet.close();
-                }
-                rset.close();
-            }
             stmt.close();
         }
         catch (SQLException ex) {

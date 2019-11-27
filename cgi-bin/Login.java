@@ -15,7 +15,7 @@ public class Hyperlink2 {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            String query = "select id from customer c where c.username = '" + args[0].trim() + "' and c.password = '" + args[1].trim() + "'";
+            String query = "SELECT c_id FROM customer WHERE username = '" + args[0].trim() + "' AND pwd = '" + args[1].trim() + "'";
             ResultSet rset = stmt.executeQuery(query);
             int counter = 0;
             while(rset.next()){
