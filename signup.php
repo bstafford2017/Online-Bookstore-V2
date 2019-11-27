@@ -11,7 +11,7 @@
         ?>
         <!-- Content-->
         <div id="alert"></div>
-        <form id="form">
+        <form id="form" class="offset-sm-4 col-sm-4">
             <div class="form-group">
                 <label>Name</label>
                 <input id="name" type="text" class="form-control" placeholder="Enter name" required/>
@@ -32,7 +32,7 @@
                     <option value="saab">No</option>
                 </select>
             </div>
-            <button id="signup" type="submit" class="btn btn-primary">Sign Up</button>
+            <button id="signup" type="submit" class="btn btn-primary btn-dark offset-sm-2 col-sm-2">Sign Up</button>
         </form>
         <p><a id="source" href="#">View Source</a></p>
         <div id="display-source"></div>
@@ -71,7 +71,7 @@
                             $('#alert').empty();
                             $('#alert').append('<div class="alert alert-danger" class="col-sm-8 offset-sm-2" role="alert">Incorrect username/password</div>');
                         } else {
-                            window.location.replace("../index.php");
+                            window.location.replace("../login.php");
                         }
                     },
                     error: function(data){

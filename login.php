@@ -11,7 +11,7 @@
         ?>
         <!-- Content-->
         <div id="alert"></div>
-        <form id="form">
+        <form id="form" class="offset-sm-4 col-sm-4">
             <div class="form-group">
                 <label>Username</label>
                 <input id="username" type="text" class="form-control" placeholder="Enter username" required>
@@ -21,7 +21,7 @@
                 <input id="password" type="password" class="form-control" placeholder="Password" required>
                 <small id="hint" class="form-text text-muted">Never let anyone else know your password.</small>
             </div>
-            <button id="login" type="submit" class="btn btn-primary">Login</button>
+            <button id="login" type="submit" class="btn btn-primary btn-dark offset-sm-2 col-sm-2">Login</button>
         </form>
         <p><a id="source" href="#">View Source</a></p>
         <div id="display-source"></div>

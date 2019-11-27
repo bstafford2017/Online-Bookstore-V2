@@ -9,7 +9,7 @@
         <?php
             include 'navbar.php';
         ?>
-        <h2 style="text-align:center;">Welcome to the bookstore!<h2>
+        <h2 style="text-align:center;">Welcome to the bookstore!</h2>
         <form class="col-sm-4 offset-sm-4">
             <label>Source Password:</label>
             <input id="pass" type="password" class="form-control" style="display: inline" required/>
