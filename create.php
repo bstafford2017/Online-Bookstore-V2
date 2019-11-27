@@ -62,10 +62,10 @@
         </form>
         <p id="success" style="color: green;"></p>
         <p id="error" style="color: red;"></p>
-        <form class="col-sm-4 offset-sm-4">
+        <form class="col-sm-6 offset-sm-2">
             <label>Source Password:</label>
-            <input id="pass" type="password" class="form-control col-sm-4" required/>
-            <button id="source" type="submit" class="col-sm-2 btn btn-dark">Display</button>
+            <input id="pass" type="password" class="form-control" required/>
+            <button id="source" type="submit" class="btn btn-dark">Display</button>
         </form>
         <div id="display-source"></div>
         <?php
