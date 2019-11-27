@@ -43,6 +43,7 @@
             <button id="clear" type="submit" class="col-sm-2 offset-sm-2 btn btn-dark">Clear all</button>
             <button id="search" type="submit" class="col-sm-2 offset-sm-2 btn btn-dark">Search</button>
             <button id="purchase" type="submit" class="col-sm-2 offset-sm-2 btn btn-dark">Purchase</button>
+            <div class="row"></div>
             <table class="table table-striped table-dark col-sm-6 offset-sm-3" style="margin-top: 2%;">
                 <thead>
                     <tr>

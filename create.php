@@ -73,8 +73,8 @@
         ?>
         <script>
             $('#source').click(function(e){
-                e.preventDefault();
-                let pass = $('#pass');
+                //e.preventDefault();
+                let pass = $('#pass').val();
                 console.log("source is clicked");
                 $.ajax({
                     type: "get",
