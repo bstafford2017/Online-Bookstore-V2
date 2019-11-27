@@ -52,8 +52,9 @@
                 <p id="isbn-error" class="form-text text-muted" style="color: red;"></p>
             </div>
             <div class="form-group">
-                <label>All Subjects:</label>
-                <div id="all-subjects" class="col-sm-8 offset-sm-2 bg-dark text-white"></div>
+                <div id="all-subjects" class="col-sm-8 offset-sm-2 bg-dark text-white">
+                    <label>All Subjects:</label>
+                </div>
                 <label>Subjects</label>
                 <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Engineering"/>
                 <p id="subjects-error" class="form-text text-muted" style="color: red;"></p>

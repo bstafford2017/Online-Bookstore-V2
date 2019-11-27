@@ -36,7 +36,7 @@ public class Search {
         Connection conn = ods.getConnection();
         Statement stmt = conn.createStatement();
         try {
-            String query = "SELECT COUNT(*), isbn, title, price, COLUMN_VALUE, COUNT(*) FROM book b, table(b.subjects) WHERE lower(title) IN ('" + args[0].trim().toLowerCase() + "') GROUP BY title, COLUMN_VALUE ORDER BY COUNT(*) DESC;"
+            String query = "SELECT COUNT(*), isbn, title, price, COLUMN_VALUE, COUNT(*) FROM book b, table(b.subjects) WHERE lower(title) IN ('" + args[0].trim().toLowerCase() + "') GROUP BY title, COLUMN_VALUE ORDER BY COUNT(*) DESC;";
             ResultSet rset = stmt.executeQuery(query);
             while(rset.next()){
                 System.out.println("<tr scope=\"col\">");
