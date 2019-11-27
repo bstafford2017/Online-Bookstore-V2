@@ -9,7 +9,23 @@
         <?php
             include 'navbar.php';
         ?>
-        
+        <script type="text/javascript">
+            // Get all subjects on load
+            $.ajax({
+                type: "get",
+                url: "cgi-bin/subject.cgi",
+                success: function(data){
+                    $(function(){
+                        $('#all-subjects').append(data);
+                    });
+                },
+                error: function(data){
+                    $(function(){
+                        $('#all-subjects').append(data);
+                    });
+                }
+            });
+        </script>
         <div id="header"></div>
         <div class="container">
             <div class="row">
@@ -36,6 +52,8 @@
                 <p id="isbn-error" class="form-text text-muted" style="color: red;"></p>
             </div>
             <div class="form-group">
+                <label>All Subjects:</label>
+                <div id="all-subjects"></div>
                 <label>Subjects</label>
                 <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Engineering" required/>
                 <p id="subjects-error" class="form-text text-muted" style="color: red;"></p>
@@ -73,6 +91,11 @@
                 let price = $('#submit').parents('form').find('#price').val();
                 let subjects = $('#submit').parents('form').find('#subjects').val();
                 title = title.replace(/ /g, "-");
+
+                $("input:checkbox:checked").each(function(){
+                    subjects += $(this).parents('form').find('#subject').val() + " ";
+                });
+
                 //subjects = subjects.replace(" ", "-");
                 let json = "isbn=" + isbn + "&title=" + title + "&price=" + price + "&subjects=" + subjects;
                 $.ajax({
