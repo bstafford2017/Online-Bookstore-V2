@@ -65,7 +65,7 @@
         <form class="col-sm-4 offset-sm-4">
             <label>Source Password:</label>
             <input id="pass" type="password" class="form-control col-sm-4" required/>
-            <input id="source" type="submit" class="col-sm-2 btn btn-dark">Display</button>
+            <button id="source" type="submit" class="col-sm-2 btn btn-dark">Display</button>
         </form>
         <div id="display-source"></div>
         <?php

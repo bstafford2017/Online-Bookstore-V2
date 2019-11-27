@@ -4,7 +4,22 @@
             include 'required.php';
         ?>
         <title id="title">Search books</title>
-
+        <script type="text/javascript">
+            $.ajax({
+                type: "get",
+                url: "cgi-bin/subject.cgi",
+                success: function(data){
+                    $(function(){
+                        $('#subject').append(data);
+                    });
+                },
+                error: function(data){
+                    $(function(){
+                        $('#subject').append(data);
+                    });
+                }
+            });
+        </script>
     </head>
     <body>
         <?php
