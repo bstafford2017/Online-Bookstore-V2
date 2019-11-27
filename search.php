@@ -97,7 +97,7 @@
             
             $("#search").click(function(e){
                 e.preventDefault();
-                let search = $('#search-input').val();
+                let search = $('#search-input').val() + "+";
 
                 $("input:checkbox:checked").each(function(){
                     search = search + $(this).val() + "+";
