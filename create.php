@@ -4,11 +4,6 @@
             include 'required.php';
         ?>
         <title id="title">Create</title>
-    </head>
-    <body>
-        <?php
-            include 'navbar.php';
-        ?>
         <script type="text/javascript">
             // Get all subjects on load
             $.ajax({
@@ -26,6 +21,11 @@
                 }
             });
         </script>
+    </head>
+    <body>
+        <?php
+            include 'navbar.php';
+        ?>
         <div id="header"></div>
         <div class="container">
             <div class="row">
