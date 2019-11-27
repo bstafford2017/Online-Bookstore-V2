@@ -53,7 +53,7 @@
             </div>
             <div class="form-group">
                 <div id="all-subjects" class="col-sm-8 offset-sm-2 bg-dark text-white">
-                    <label>All Subjects:</label>
+                    <label>All Subjects:</label></br>
                 </div>
                 <label>Subjects</label>
                 <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Engineering"/>
@@ -98,13 +98,15 @@
                 let isbn = $('#submit').parents('form').find('#isbn').val();
                 let title = $('#submit').parents('form').find('#book-title').val();
                 let price = $('#submit').parents('form').find('#price').val();
-                let subjects = $('#submit').parents('form').find('#subjects').val() + " ";
+                let subjects = $('#submit').parents('form').find('#subjects').val() + "+";
                 title = title.replace(/ /g, "-");
 
                 $("input:checkbox:checked").each(function(){
-                    subjects += $(this).val();
+                    subjects = subjects + $(this).val() + "+";
                 });
-                //subjects = subjects.replace(" ", "-");
+
+                subjects = subjects.substring(0, subjects.length - 1);
+
                 let json = "isbn=" + isbn + "&title=" + title + "&price=" + price + "&subjects=" + subjects;
                 alert(json);
                 $.ajax({
