@@ -3,7 +3,7 @@ import java.io.*;
 import oracle.jdbc.*;
 import oracle.jdbc.pool.OracleDataSource;
 
-public class Hyperlink2 {
+public class Login {
     public static void main(String[] args) throws SQLException {
         String user     = "C##benjamin.stafford";
         String password = "stafford6248";
