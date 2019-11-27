@@ -21,6 +21,10 @@ if($pass eq 'benjamin'){
         system("/bin/cat ../index.php");
     } elsif($filename eq 'listbooks'){
         system("/bin/cat ../listbooks.php listbooks.pl ListBooks.java");
+    } elsif($filename eq 'login'){
+        system("/bin/cat ../login.php login.pl Login.java");
+    } elsif($filename eq 'signup'){
+        system("/bin/cat ../signup.php signup.pl Signup.java");
     } else {
         system("/bin/cat * ../*");
     }

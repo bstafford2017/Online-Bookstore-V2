@@ -53,7 +53,7 @@
             </div>
             <div class="form-group">
                 <label>All Subjects:</label>
-                <div id="all-subjects" class="bg-dark text-white" style="margin-bottom: 2%;"></div>
+                <div id="all-subjects" class="col-sm-12 bg-dark text-white" style="margin-bottom: 2%;"></div>
                 <label>Subjects</label>
                 <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Engineering"/>
                 <p id="subjects-error" class="form-text text-muted" style="color: red;"></p>

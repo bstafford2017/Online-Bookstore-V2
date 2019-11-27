@@ -3,7 +3,7 @@
         <?php 
             include 'required.php';
         ?>
-        <title id="title">Login</title>
+        <title id="title">Sign Up</title>
     </head>
     <body>
         <?php
@@ -13,15 +13,26 @@
         <div id="alert"></div>
         <form id="form">
             <div class="form-group">
+                <label>Name</label>
+                <input id="name" type="text" class="form-control" placeholder="Enter name" required/>
+            </div>
+            <div class="form-group">
                 <label>Username</label>
-                <input id="username" type="text" class="form-control" placeholder="Enter username" required>
+                <input id="username" type="text" class="form-control" placeholder="Enter username" required/>
             </div>
             <div class="form-group">
                 <label>Password</label>
-                <input id="password" type="password" class="form-control" placeholder="Password" required>
+                <input id="password" type="password" class="form-control" placeholder="Enter password" required/>
                 <small id="hint" class="form-text text-muted">Never let anyone else know your password.</small>
             </div>
-            <button id="login" type="submit" class="btn btn-primary">Login</button>
+            <div class="form-group">
+                <label>Administrator</label>
+                <select id="admin" class="custom-select">
+                    <option value="volvo">Yes</option>
+                    <option value="saab">No</option>
+                </select>
+            </div>
+            <button id="signup" type="submit" class="btn btn-primary">Sign Up</button>
         </form>
         <p><a id="source" href="#">View Source</a></p>
         <div id="display-source"></div>
@@ -34,7 +45,7 @@
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/source.cgi",
-                    data: {filename: "listbooks"},
+                    data: {filename: "signup"},
                     success: function(data){
                         $('body').empty();    
                         $('body').append("<pre>" + data + "</pre>");
@@ -45,14 +56,16 @@
                     }
                 });
             });
-            $('#login').click(function(e){
+            $('#signup').click(function(e){
                 e.preventDefault();
+                let name = $('#name');
                 let username = $('#username');
                 let password = $('#password');
+                let admin = $('#admin');
                 $.ajax({
                     type: "post",
                     url: "cgi-bin/login.cgi",
-                    data: {"username": username,"password": password},
+                    data: {"name": name, "username": username, "password": password, "admin": admin},
                     success: function(data){
                         if(data.stringify().contains("Error")){
                             $('#alert').empty();

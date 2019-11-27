@@ -79,7 +79,7 @@
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/source.cgi",
-                    data: {filename: "create", password: pass},
+                    data: {filename: "search", password: pass},
                     success: function(data){
                         if(data){
                             $('body').empty();    

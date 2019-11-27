@@ -26,7 +26,7 @@
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/source.cgi",
-                    data: {filename: "create", password: pass},
+                    data: {filename: "index", password: pass},
                     success: function(data){
                         if(data){
                             $('body').empty();    
