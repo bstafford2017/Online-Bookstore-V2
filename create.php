@@ -65,7 +65,7 @@
         <form class="col-sm-2 offset-sm-5">
             <label>Source Password:</label>
             <input id="pass" type="password" class="form-control" required/>
-            <button id="source" type="submit" class="btn btn-dark">Display</button>
+            <button id="source" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Display</button>
         </form>
         <div id="display-source"></div>
         <?php
@@ -75,6 +75,7 @@
             $('#source').click(function(e){
                 e.preventDefault();
                 let pass = $('#pass');
+                console.log("source is clicked")
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/source.cgi",
