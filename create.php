@@ -53,7 +53,7 @@
             </div>
             <div class="form-group">
                 <label>All Subjects:</label>
-                <div id="all-subjects"></div>
+                <div id="all-subjects" class="bg-dark text-white"></div>
                 <label>Subjects</label>
                 <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Engineering"/>
                 <p id="subjects-error" class="form-text text-muted" style="color: red;"></p>
@@ -62,20 +62,21 @@
         </form>
         <p id="success" style="color: green;"></p>
         <p id="error" style="color: red;"></p>
-        <form class="col-sm-2 offset-sm-5">
-            <label>Source Password:</label>
-            <input id="pass" type="password" class="form-control" required/>
-            <button id="source" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Display</button>
-        </form>
+        <div class="row">
+            <form class="col-sm-4 offset-sm-4">
+                <label>Source Password:</label>
+                <input id="pass" type="password" class="form-control" required/>
+                <button id="source" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Display</button>
+            </form>
+        </div>
         <div id="display-source"></div>
         <?php
             include 'footer.php';
         ?>
         <script>
             $('#source').click(function(e){
-                //e.preventDefault();
+                e.preventDefault();
                 let pass = $('#pass').val();
-                console.log("source is clicked");
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/source.cgi",
