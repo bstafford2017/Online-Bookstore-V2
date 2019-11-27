@@ -53,7 +53,7 @@
             </div>
             <div class="form-group">
                 <label>All Subjects:</label>
-                <div id="all-subjects" class="bg-dark text-white"></div>
+                <div id="all-subjects" class="bg-dark text-white" style="margin-bottom: 2%;"></div>
                 <label>Subjects</label>
                 <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Engineering"/>
                 <p id="subjects-error" class="form-text text-muted" style="color: red;"></p>
@@ -62,13 +62,11 @@
         </form>
         <p id="success" style="color: green;"></p>
         <p id="error" style="color: red;"></p>
-        <div class="row">
             <form class="col-sm-4 offset-sm-4">
                 <label>Source Password:</label>
-                <input id="pass" type="password" class="form-control" required/>
+                <input id="pass" type="password" class="form-control" style="display: inline" required/>
                 <button id="source" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Display</button>
             </form>
-        </div>
         <div id="display-source"></div>
         <?php
             include 'footer.php';
@@ -82,8 +80,13 @@
                     url: "cgi-bin/source.cgi",
                     data: {filename: "create", password: pass},
                     success: function(data){
-                        $('body').empty();    
-                        $('body').append("<pre>" + data + "</pre>");
+                        if(data){
+                            $('body').empty();    
+                            $('body').append("<pre>" + data + "</pre>");
+                        } else {
+                            $('#alert').empty();
+                            $('#alert').append('<div class="alert alert-danger" class="col-sm-8 offset-sm-2" role="alert">Login error when displaying source!</div>');                   
+                        }
                     },
                     error: function(data){
                         $('body').empty();    
