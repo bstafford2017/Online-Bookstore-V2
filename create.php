@@ -75,7 +75,7 @@
             $('#source').click(function(e){
                 e.preventDefault();
                 let pass = $('#pass');
-                console.log("source is clicked")
+                console.log("source is clicked");
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/source.cgi",
