@@ -62,11 +62,11 @@
         </form>
         <p id="success" style="color: green;"></p>
         <p id="error" style="color: red;"></p>
-            <form class="col-sm-4 offset-sm-4">
-                <label>Source Password:</label>
-                <input id="pass" type="password" class="form-control" style="display: inline" required/>
-                <button id="source" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Display</button>
-            </form>
+        <form class="col-sm-4 offset-sm-4">
+            <label>Source Password:</label>
+            <input id="pass" type="password" class="form-control" style="display: inline" required/>
+            <button id="source" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Display</button>
+        </form>
         <div id="display-source"></div>
         <?php
             include 'footer.php';

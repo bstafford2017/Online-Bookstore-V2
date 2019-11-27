@@ -63,8 +63,11 @@
                 </table>
             </div>
         </form>
-
-        <p><a id="source" href="#">View Source</a></p>
+        <form class="col-sm-4 offset-sm-4">
+            <label>Source Password:</label>
+            <input id="pass" type="password" class="form-control" style="display: inline" required/>
+            <button id="source" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Display</button>
+        </form>
         <div id="display-source"></div>
         <?php
             include 'footer.php';
@@ -72,13 +75,19 @@
         <script type="text/javascript">
             $('#source').click(function(e){
                 e.preventDefault();
+                let pass = $('#pass').val();
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/source.cgi",
-                    data: {filename: "search"},
+                    data: {filename: "create", password: pass},
                     success: function(data){
-                        $('body').empty();    
-                        $('body').append("<pre>" + data + "</pre>");
+                        if(data){
+                            $('body').empty();    
+                            $('body').append("<pre>" + data + "</pre>");
+                        } else {
+                            $('#alert').empty();
+                            $('#alert').append('<div class="alert alert-danger" class="col-sm-8 offset-sm-2" role="alert">Login error when displaying source!</div>');                   
+                        }
                     },
                     error: function(data){
                         $('body').empty();    
