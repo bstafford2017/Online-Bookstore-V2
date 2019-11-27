@@ -27,7 +27,7 @@ if(defined $subjects){
 }
 if(!defined $isbn && !defined $subjects){
     print("<p>No Result</p></body></html>");
-    System.exit(0);
+    exit(0);
 }
 system($cmd);
 print("</body></html>");
