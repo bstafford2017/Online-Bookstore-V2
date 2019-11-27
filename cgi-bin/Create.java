@@ -27,11 +27,16 @@ public class Create {
             }
 
             // Insert into books table
-            String insertBook = "INSERT INTO book (isbn, title, price, subjects) VALUES (" + args[0].trim() +", '" + args[1].trim() + "', " + args[2].trim() + ", subject_table(";
-            for(int i = 3; i < args.length; i++){
-                insertBook += args[i].trim();
+            String insertBook = "INSERT INTO book (isbn, title, price, subjects) VALUES (" + args[0].trim() +", '" + args[1].trim() + "', " + args[2].trim() + ", ";
+            if(args.length == 3){
+                insertBook += "NULL)";
+            } else {
+                insertBook += "subject_table(";
+                for(int i = 3; i < args.length; i++){
+                    insertBook += args[i].trim();
+                }
+                insertBook += ")";
             }
-            insertBook += ")";
             stmt.executeQuery(insertBook);
 
             stmt.close();

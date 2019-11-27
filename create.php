@@ -55,7 +55,7 @@
                 <label>All Subjects:</label>
                 <div id="all-subjects"></div>
                 <label>Subjects</label>
-                <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Engineering" required/>
+                <input id="subjects" name="subjects" type="text" class="form-control" placeholder="i.e. Engineering"/>
                 <p id="subjects-error" class="form-text text-muted" style="color: red;"></p>
             </div>
             <button id="submit" type="submit" class="col-sm-2 offset-sm-5 btn btn-dark">Create</button>
