@@ -6,9 +6,6 @@
         <title id="title">Sign Up</title>
     </head>
     <body>
-        <?php
-            include 'navbar.php';
-        ?>
         <!-- Content-->
         <div id="alert"></div>
         <form id="form" class="offset-sm-4 col-sm-4">
@@ -81,7 +78,7 @@
                             $('#alert').empty();
                             $('#alert').append('<div class="alert alert-danger" class="col-sm-8 offset-sm-2" role="alert">Incorrect username/password</div>');
                         } else {
-                            window.location.replace("../login.php");
+                            window.location.replace("login.php");
                         }
                     },
                     error: function(data){

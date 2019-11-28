@@ -78,7 +78,7 @@
                             }).fail(function(data){
                                 alert("failed session");
                             });
-                            window.location.replace("../index.php");
+                            window.location.replace("index.php");
                         }
                     },
                     error: function(data){
