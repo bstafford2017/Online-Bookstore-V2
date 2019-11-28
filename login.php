@@ -64,7 +64,7 @@
                         password: $('#password').val()
                     },
                     success: function(data){
-                        if(data.contains("Error")){
+                        if(data.includes("Error")){
                             $('#alert').empty();
                             $('#alert').append('<div class="alert alert-danger" class="col-sm-8 offset-sm-2" role="alert">Incorrect username/password</div>');
                         } else {
