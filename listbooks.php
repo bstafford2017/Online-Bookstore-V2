@@ -114,7 +114,11 @@
                 });
                 let json = "";
                 for(let i = 0; i < isbn.length; i++){
-                    json = json + "isbn=" + isbn[i] + "&";
+                    if(i == 0){
+                        json = json + "isbn=" + isbn[i] + "&";
+                    } else {
+                        json = json + "+" + isbn[i];
+                    }
                 }
                 // Remove last &
                 json = json.substring(0, json.length - 1);
