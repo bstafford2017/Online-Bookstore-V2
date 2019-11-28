@@ -24,13 +24,13 @@ public class ListCustomers {
             } else {
                 query += "SELECT c_name, username, pwd, COLUMN_VALUE FROM customer c, table(c.purchases)";
             }
-            rset = stmt.executeQuery(query);
+            ResultSet resultSet = stmt.executeQuery(query);
             int rowCounter = 0;
-            while(rset.next()){
+            while(resultSet.next()){
                 System.out.println("<tr id=\"" + rowCounter + "\" scope=\"col\">");
-                System.out.println("<td scope=\"col\">" + rset.getString(1) + "</td>");
-                System.out.println("<td scope=\"col\">" + rset.getString(2) + "</td>");
-                System.out.println("<td scope=\"col\">" + rset.getString(3) + "</td></tr>");
+                System.out.println("<td scope=\"col\">" + resultSet.getString(1) + "</td>");
+                System.out.println("<td scope=\"col\">" + resultSet.getString(2) + "</td>");
+                System.out.println("<td scope=\"col\">" + resultSet.getString(3) + "</td></tr>");
                 rowCounter++;
             }
             if(rowCounter == 0){
