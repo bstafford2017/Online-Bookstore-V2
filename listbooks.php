@@ -119,11 +119,7 @@
                     } else {
                         json = json + "+" + isbn[i];
                     }
-                }
-                // Remove last &
-                json = json.substring(0, json.length - 1);
-                
-                alert(json);
+                }                
 
                 $.ajax({
                 type: "get",
