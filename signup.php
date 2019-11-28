@@ -65,14 +65,15 @@
             });
             $('#signup').click(function(e){
                 e.preventDefault();
-                let name = $('#name');
-                let username = $('#username');
-                let password = $('#password');
-                let admin = $('#admin');
+                alert("clicked");
                 $.ajax({
                     type: "post",
                     url: "cgi-bin/login.cgi",
-                    data: {"name": name, "username": username, "password": password, "admin": admin},
+                    data: {
+                        "name": $('#name').val(),
+                        "username": $('#username').val(),
+                        "password": $('#password').val(),
+                        "admin": $('#admin').val()},
                     success: function(data){
                         if(data.stringify().contains("Error")){
                             $('#alert').empty();
