@@ -75,7 +75,7 @@
                                 data: JSON.stringify({
                                     username: $('#username').val(),
                                 })
-                            }).done(function(data)){
+                            }).done(function(data){
                                 alert("success session");
                                 window.location.replace("http://undcemcs02.und.edu/~benjamin.stafford/index.php");
                             }).fail(function(data){
