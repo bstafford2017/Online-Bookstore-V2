@@ -76,7 +76,7 @@
                                     username: $('#username').val(),
                                 })
                             }).done(function(data){
-                                window.location.replace("index.php");
+                                window.location.href = "index.php";
                             }).fail(function(data){
                                 alert("failed session");
                             });
