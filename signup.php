@@ -65,23 +65,17 @@
             });
             $('#signup').click(function(e){
                 e.preventDefault();
-                alert("clicked");
                 $.ajax({
                     type: "post",
-                    url: "cgi-bin/login.cgi",
+                    url: "cgi-bin/signup.cgi",
                     data: {
                         "name": $('#name').val(),
                         "username": $('#username').val(),
                         "password": $('#password').val(),
-                        "admin": $('#admin').val()},
+                        "admin": $('#admin').val()
+                    },
                     success: function(data){
-                        if(data.stringify().contains("Error")){
-                            $('#alert').empty();
-                            $('#alert').append('<div class="alert alert-danger" class="col-sm-8 offset-sm-2" role="alert">Incorrect username/password</div>');
-                        } else {
-                            window.location.replace("login.php");
-                            alert("success!");
-                        }
+                        window.location.replace("login.php");
                     },
                     error: function(data){
                         $('#alert').empty();
