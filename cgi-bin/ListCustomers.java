@@ -20,12 +20,13 @@ public class ListCustomers {
             String query = "";
             ResultSet rset = stmt.executeQuery("SELECT COUNT(*) FROM customer c, table(c.purchases)");
             if(rset.next()){
-                if(Integer.parseInt(rset.getString(1)) > 0){
-                    query += "SELECT c_name, username, pwd FROM customer)";
+                if(Integer.parseInt(rset.getString(1)) == 0){
+                    query += "SELECT c_name, username, pwd FROM customer";
                 } else {
                     query += "SELECT c_name, username, pwd, COLUMN_VALUE FROM customer c, table(c.purchases)";
                 }
             }
+            System.out.println(query);
             ResultSet resultSet = stmt.executeQuery(query);
             int rowCounter = 0;
             while(resultSet.next()){
