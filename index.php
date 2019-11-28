@@ -4,7 +4,7 @@
     if(isset($_SESSION['username'])){
         echo $_SESSION['username'];
     } else {
-        header("Location: http://undcemcs02.und.edu/~benjamin.stafford/login.php";
+        header("Location: login.php");
     }
 ?>
 <!doctype html>
