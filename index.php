@@ -3,10 +3,13 @@
         <?php 
             session_start();
             echo $_SESSION['username'];
-            /*if(!isset($_SESSION['username']) || $_SESSION["username"] == 0){
-                header("Location: http://undcemcs02.und.edu/~benjamin.stafford/login.php");
-                die();
-            }*/
+            if(isset($_SESSION['username'])){
+                echo $_SESSION['username'];
+                exit();
+            } else {
+                header("Location: http://undcemcs02.und.edu/~benjamin.stafford/login.php";
+            }
+
             include 'required.php';
         ?>
         <title id="title">Home</title>
