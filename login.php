@@ -56,7 +56,6 @@
             });
             $('#login').click(function(e){
                 e.preventDefault();
-                let success = false;
                 $.ajax({
                     type: "post",
                     url: "cgi-bin/login.cgi",
@@ -77,7 +76,6 @@
                                     username: $('#username').val(),
                                 })
                             }).done(function(data){
-                                success = true;
                                 location.replace("index.php");
                             }).fail(function(data){
                                 alert("failed session");
@@ -89,9 +87,6 @@
                         $('#alert').append('<div class="alert alert-danger" class="col-sm-8 offset-sm-2" role="alert">System Error!</div>');
                     }
                 });
-                if(success){
-                    location.replace("signup.php");
-                }
             });
         </script>
     </body>
