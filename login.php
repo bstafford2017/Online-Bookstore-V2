@@ -76,7 +76,6 @@
                                     username: $('#username').val(),
                                 })
                             }).done(function(data){
-                                alert("success session");
                                 window.location.replace("http://undcemcs02.und.edu/~benjamin.stafford/index.php");
                             }).fail(function(data){
                                 alert("failed session");
