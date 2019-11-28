@@ -92,8 +92,6 @@
                 // Remove last &
                 json = json.substring(0, json.length - 1);
 
-                alert(json);
-
                 $.ajax({
                 type: "get",
                 url: "cgi-bin/updateprice.cgi",
@@ -120,6 +118,8 @@
                 }
                 // Remove last &
                 json = json.substring(0, json.length - 1);
+                
+                alert(json);
 
                 $.ajax({
                 type: "get",
