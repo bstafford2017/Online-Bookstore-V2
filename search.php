@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    echo $_SESSION['username'];
+    if(isset($_SESSION['username'])){
+        echo $_SESSION['username'];
+    } else {
+        header("Location: login.php");
+    }
+?>
 <!doctype html>
     <head>
         <?php 
