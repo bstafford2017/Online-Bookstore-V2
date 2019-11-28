@@ -6,9 +6,6 @@
         <title id="title">Login</title>
     </head>
     <body>
-        <?php
-            include 'navbar.php';
-        ?>
         <!-- Content-->
         <div id="alert"></div>
         <form id="form" class="offset-sm-4 col-sm-4">
@@ -68,6 +65,18 @@
                             $('#alert').empty();
                             $('#alert').append('<div class="alert alert-danger" class="col-sm-8 offset-sm-2" role="alert">Incorrect username/password</div>');
                         } else {
+                            $.ajax({
+                                type: "post",
+                                contentType: "application/json", 
+                                url: "utils/session.php",
+                                data: JSON.stringify({
+                                    username: username;
+                                })
+                            }).done(function(data)){
+                                alert("success session");
+                            }).fail(function(data){
+                                alert("failed session");
+                            });
                             window.location.replace("../index.php");
                         }
                     },

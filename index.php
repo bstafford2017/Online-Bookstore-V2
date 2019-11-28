@@ -1,6 +1,10 @@
 <!doctype html>
     <head>
         <?php 
+            if(!isset($_SESSION['username'])){
+                header("Location: http://undcemcs02.und.edu/~benjamin.stafford/index.php");
+                die();
+            }
             include 'required.php';
         ?>
         <title id="title">Home</title>
