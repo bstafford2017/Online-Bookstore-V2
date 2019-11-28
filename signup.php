@@ -79,6 +79,7 @@
                             $('#alert').append('<div class="alert alert-danger" class="col-sm-8 offset-sm-2" role="alert">Incorrect username/password</div>');
                         } else {
                             window.location.replace("login.php");
+                            alert("success!");
                         }
                     },
                     error: function(data){
