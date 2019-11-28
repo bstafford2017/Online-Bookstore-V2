@@ -68,7 +68,8 @@
                             $('#alert').empty();
                             $('#alert').append('<div class="alert alert-danger" class="col-sm-8 offset-sm-2" role="alert">Incorrect username/password</div>');
                         } else {
-                            console.log($('#username').val());
+                            let user = $('#username').val();
+                            console.log(user);
                             $.ajax({
                                 type: "post",
                                 contentType: "application/json", 
