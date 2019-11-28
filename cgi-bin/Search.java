@@ -27,7 +27,7 @@ public class Search {
                 }
                 query += "'" + args[i].trim().toLowerCase() + "',";
                 if(i == args.length - 1){
-                    query += "'" + args[i].trim().toLowerCase() + ") GROUP BY isbn, title, price, COLUMN_VALUE ORDER BY COUNT(*) DESC"
+                    query += "'" + args[i].trim().toLowerCase() + ") GROUP BY isbn, title, price, COLUMN_VALUE ORDER BY COUNT(*) DESC";
                 }
             }
             if(args.length == 0){
