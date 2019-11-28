@@ -1,9 +1,9 @@
 <!doctype html>
     <head>
         <?php 
-            if(!isset($_SESSION['username'])){
+            session_start();
+            if(!isset($_SESSION['username']) || $_SESSION['username'] == 0){
                 header("Location: http://undcemcs02.und.edu/~benjamin.stafford/login.php");
-                die();
             }
             include 'required.php';
         ?>
