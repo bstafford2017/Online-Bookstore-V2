@@ -24,15 +24,15 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a id="login" class="nav-link" href="login.php">Sign Out</a>
+                <a id="signout" class="nav-link" href="#">Sign Out</a>
             </li>
         </ul>
     </div>
 </nav>
 
 <script type="text/javascript">
-    $('login').click(function(){
-        alert("login clicked");
+    $('#signout').click(function(e){
+        e.preventDefault();
         $.ajax({
             type: "get",
             contentType: "application/json",
@@ -40,6 +40,7 @@
             success: function(){
                 console.log("Successfully destroyed session!");
                 alert("success");
+                window.location.replace("login.php");
             },
             error: function(){
                 console.log("Error in destroying session!");
