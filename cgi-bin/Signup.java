@@ -20,7 +20,8 @@ public class Signup {
         Connection conn = ods.getConnection();
         Statement stmt = conn.createStatement();
         try {
-            stmt.executeUpdate("INSERT INTO customer (c_name, username, pwd, purchases) VALUES (" + args[0].trim() + ", " + args[1].trim() + ", " + args[2].trim() + ", NULL)");
+            stmt.executeUpdate("INSERT INTO customer (c_name, username, pwd, purchases) VALUES ('" + args[0].trim() + "', '" + args[1].trim() + "', '" + args[2].trim() + "', NULL)");
+            System.out.println("INSERT INTO customer (c_name, username, pwd, purchases) VALUES ('" + args[0].trim() + "', '" + args[1].trim() + "', '" + args[2].trim() + "', NULL)");
         }
         catch (SQLException ex) {
             System.out.println(ex);
