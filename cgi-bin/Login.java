@@ -20,6 +20,7 @@ public class Login {
             int counter = 0;
             while(rset.next()){
                 System.out.println(rset.getString(1) + " ");
+                counter++;
             }
             if(counter == 0){
                 System.out.println("Error");

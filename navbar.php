@@ -18,6 +18,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="listbooks.php">List Books</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="listcustomers.php">List Customers</a>
+            </li>
         </ul>
     </div>
 </nav>
