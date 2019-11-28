@@ -22,7 +22,7 @@
                 <a class="nav-link" href="listcustomers.php">List Customers</a>
             </li>
         </ul>
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a id="signout" class="nav-link" href="#">Sign Out</a>
             </li>
