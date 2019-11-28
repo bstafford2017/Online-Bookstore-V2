@@ -5,7 +5,6 @@
             echo $_SESSION['username'];
             if(isset($_SESSION['username'])){
                 echo $_SESSION['username'];
-                exit();
             } else {
                 header("Location: http://undcemcs02.und.edu/~benjamin.stafford/login.php";
             }
