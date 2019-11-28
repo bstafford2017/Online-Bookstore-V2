@@ -78,7 +78,7 @@
                             }).done(function(data){
                                 location.replace("index.php");
                             }).fail(function(data){
-                                alert("failed session");
+
                             });
                         }
                     },

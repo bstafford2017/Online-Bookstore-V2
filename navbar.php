@@ -39,12 +39,10 @@
             url: "utils/destroy.php",
             success: function(){
                 console.log("Successfully destroyed session!");
-                alert("success");
                 window.location.replace("login.php");
             },
             error: function(){
                 console.log("Error in destroying session!");
-                alert("error");
             }
         });
     });
