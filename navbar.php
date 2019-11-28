@@ -38,9 +38,11 @@
             url: "utils/destroy.php",
             success: function(){
                 console.log("Successfully destroyed session!");
+                alert("success");
             },
             error: function(){
                 console.log("Error in destroying session!");
+                alert("error");
             }
         });
     });
