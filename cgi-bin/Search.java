@@ -41,9 +41,9 @@ public class Search {
                 System.out.println("<td id=\"check\"><input type=\"checkbox\" id=\"select-purchase\"/></td>");
                 System.out.println("<td id=\"count\">" + rset.getString(1) + "</td>");
                 System.out.println("<td id=\"isbn\">" + rset.getString(2) + "</td>");
-                System.out.println("<td id=\"title\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?isbn=" + rset.getString(2) + "\">" + rset.getString(3) + "</a></td>");
+                System.out.println("<td id=\"title\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?isbn=" + rset.getString(2) + "\" style=\"color: white\">" + rset.getString(3) + "</a></td>");
                 System.out.println("<td id=\"price\" scope=\"col\">" + rset.getString(4) + "</td>");
-                System.out.println("<td id=\"subject\" scope=\"col\">" + rset.getString(5) + "</td></tr>");
+                System.out.println("<td id=\"subject\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?subjects=" + rset.getString(5) + "\" style=\"color: white;\">" + rset.getString(5) + "</a></td></tr>");
                 counter++;
             }
             if(counter == 0){
