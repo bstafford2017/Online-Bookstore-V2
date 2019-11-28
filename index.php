@@ -2,7 +2,7 @@
     <head>
         <?php 
             if(!isset($_SESSION['username'])){
-                header("Location: http://undcemcs02.und.edu/~benjamin.stafford/index.php");
+                header("Location: http://undcemcs02.und.edu/~benjamin.stafford/login.php");
                 die();
             }
             include 'required.php';
