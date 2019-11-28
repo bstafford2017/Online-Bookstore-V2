@@ -17,7 +17,14 @@ public class ListCustomers {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            ResultSet rset = stmt.executeQuery("SELECT c_name, username, pwd, COLUMN_VALUE FROM customer c, table(c.purchases)");
+            String query = "";
+            ResultSet rset = stmt.executeQuery("SELECT COUNT(*) FROM customer c, table(c.purchases)");
+            if(Integer.parseInt(rset.getString(1)) > 0){
+                query += "SELECT c_name, username, pwd FROM customer)";
+            } else {
+                query += "SELECT c_name, username, pwd, COLUMN_VALUE FROM customer c, table(c.purchases)";
+            }
+            rset = stmt.executeQuery(query);
             int rowCounter = 0;
             while(rset.next()){
                 System.out.println("<tr id=\"" + rowCounter + "\" scope=\"col\">");
