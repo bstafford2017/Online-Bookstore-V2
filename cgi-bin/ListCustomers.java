@@ -19,10 +19,12 @@ public class ListCustomers {
             Statement stmt = conn.createStatement();
             String query = "";
             ResultSet rset = stmt.executeQuery("SELECT COUNT(*) FROM customer c, table(c.purchases)");
-            if(Integer.parseInt(rset.getString(1)) > 0){
-                query += "SELECT c_name, username, pwd FROM customer)";
-            } else {
-                query += "SELECT c_name, username, pwd, COLUMN_VALUE FROM customer c, table(c.purchases)";
+            if(rset.next()){
+                if(Integer.parseInt(rset.getString(1)) > 0){
+                    query += "SELECT c_name, username, pwd FROM customer)";
+                } else {
+                    query += "SELECT c_name, username, pwd, COLUMN_VALUE FROM customer c, table(c.purchases)";
+                }
             }
             ResultSet resultSet = stmt.executeQuery(query);
             int rowCounter = 0;
