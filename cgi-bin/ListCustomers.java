@@ -17,7 +17,7 @@ public class ListCustomers {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            ResultSet rset = stmt.executeQuery("SELECT name, username, pwd, COLUMN_VALUE FROM customer c, table(c.purchases)");
+            ResultSet rset = stmt.executeQuery("SELECT c_name, username, pwd, COLUMN_VALUE FROM customer c, table(c.purchases)");
             int rowCounter = 0;
             while(rset.next()){
                 System.out.println("<tr id=\"" + rowCounter + "\" scope=\"col\">");
