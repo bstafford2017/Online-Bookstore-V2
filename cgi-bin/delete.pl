@@ -11,9 +11,7 @@ my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Delete";
 
 print("Content-type: text/html\n\n");
 
-my @names = $query->param;
-foreach my $name (@names) {
-    $cmd = $cmd . " " . $query->param($name);
-}
+my $isbn = $query->param('isbn');
+$cmd = $cmd . " " . $isbn;
 print($cmd);
 system($cmd);
