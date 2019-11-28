@@ -7,6 +7,7 @@
     </head>
     <body>
         <!-- Content-->
+        <h2 style="text-align:center;">Login Page</h2>
         <div id="alert"></div>
         <form id="form" class="offset-sm-4 col-sm-4">
             <div class="form-group">
@@ -15,11 +16,11 @@
             </div>
             <div class="form-group">
                 <label>Password</label>
-                <input id="password" type="password" class="form-control" placeholder="Password" required>
+                <input id="password" type="password" class="form-control" placeholder="Enter password" required>
                 <small id="hint" class="form-text text-muted">Never let anyone else know your password.</small>
             </div>
-            <button id="login" type="submit" class="btn btn-primary btn-dark offset-sm-1">Login</button>
-            <button id="signup" type="submit" class="btn btn-primary btn-dark offset-sm-1" onclick="window.location='signup.php';">Sign Up</button>
+            <button id="login" type="submit" class="btn btn-primary btn-dark offset-sm-4">Login</button>
+            <button id="signup" type="submit" class="btn btn-primary btn-dark offset-sm-4" onclick="window.location='signup.php';">Sign Up</button>
         </form>
         <form class="col-sm-4 offset-sm-4">
             <label>Source Password:</label>
@@ -55,12 +56,13 @@
             });
             $('#login').click(function(e){
                 e.preventDefault();
-                let username = $('#username');
-                let password = $('#password');
                 $.ajax({
                     type: "post",
                     url: "cgi-bin/login.cgi",
-                    data: {"username": username,"password": password},
+                    data: {
+                        username: $('#username').val(),
+                        password: $('#password').val()
+                    },
                     success: function(data){
                         if(data.contains("Error")){
                             $('#alert').empty();
@@ -75,10 +77,10 @@
                                 })
                             }).done(function(data)){
                                 alert("success session");
+                                window.location.replace("http://undcemcs02.und.edu/~benjamin.stafford/index.php");
                             }).fail(function(data){
                                 alert("failed session");
                             });
-                            window.location.replace("index.php");
                         }
                     },
                     error: function(data){

@@ -7,6 +7,7 @@
     </head>
     <body>
         <!-- Content-->
+        <h2 style="text-align:center;">Sign Up Page</h2>
         <div id="alert"></div>
         <form id="form" class="offset-sm-4 col-sm-4">
             <div class="form-group">
