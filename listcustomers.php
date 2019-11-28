@@ -9,8 +9,8 @@
                 type: "get",
                 url: "cgi-bin/listcustomers.cgi",
                 success: function(data){
-                    $('#results').empty();    
-                    $('#results').append(data);
+                    $('#table-body').empty();    
+                    $('#table-body').append(data);
                 },
                 error: function(data){
                     $('#alert').empty();
@@ -25,7 +25,19 @@
         ?>
         <!-- Content-->
         <div id="alert"></div>
-        <div id="results"></div>
+        <table class="table table-striped table-dark col-sm-6 offset-sm-3" style="margin-top: 2%;">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Purchases</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                
+            </tbody>
+        </table>
         <form class="col-sm-4 offset-sm-4">
             <label>Source Password:</label>
             <input id="pass" type="password" class="form-control" style="display: inline" required/>
