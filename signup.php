@@ -76,7 +76,7 @@
                         "admin": $('#admin').val()
                     },
                     success: function(data){
-                        window.location.replace("login.php");
+                        location.replace("login.php");
                     },
                     error: function(data){
                         $('#alert').empty();

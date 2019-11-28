@@ -76,8 +76,7 @@
                                     username: $('#username').val(),
                                 })
                             }).done(function(data){
-                                window.location.reload(false);
-                                window.location.replace("index.php");
+                                location.replace("index.php");
                             }).fail(function(data){
                                 alert("failed session");
                             });
