@@ -22,8 +22,6 @@
                 <a class="nav-link" href="listcustomers.php">List Customers</a>
             </li>
         </ul>
-    </div>
-    <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="login.php">Sign Out</a>
