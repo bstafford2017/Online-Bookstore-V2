@@ -1,14 +1,15 @@
+<?php
+    session_start();
+    echo $_SESSION['username'];
+    if(isset($_SESSION['username'])){
+        echo $_SESSION['username'];
+    } else {
+        header("Location: http://undcemcs02.und.edu/~benjamin.stafford/login.php";
+    }
+?>
 <!doctype html>
     <head>
-        <?php 
-            session_start();
-            echo $_SESSION['username'];
-            if(isset($_SESSION['username'])){
-                echo $_SESSION['username'];
-            } else {
-                header("Location: http://undcemcs02.und.edu/~benjamin.stafford/login.php";
-            }
-
+        <?php
             include 'required.php';
         ?>
         <title id="title">Home</title>
