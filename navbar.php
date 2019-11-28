@@ -32,6 +32,7 @@
 
 <script type="text/javascript">
     $('login').click(function(){
+        alert("login clicked");
         $.ajax({
             type: "get",
             contentType: "application/json",
