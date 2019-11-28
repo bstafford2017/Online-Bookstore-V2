@@ -20,6 +20,7 @@ public class Delete {
             Statement stmt = conn.createStatement();
             for(int i = 0; i < args.length; i++){
                 stmt.executeQuery("DELETE FROM book WHERE isbn = " + args[i].trim());
+                System.out.println("DELETE FROM book WHERE isbn = " + args[i].trim());
             }
             stmt.close();
         }
