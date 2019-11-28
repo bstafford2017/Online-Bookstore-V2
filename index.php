@@ -2,10 +2,11 @@
     <head>
         <?php 
             session_start();
-            if(!isset($_SESSION['username']) || $_SESSION["username"] == 0){
+            echo $_SESSION['username'];
+            /*if(!isset($_SESSION['username']) || $_SESSION["username"] == 0){
                 header("Location: http://undcemcs02.und.edu/~benjamin.stafford/login.php");
                 die();
-            }
+            }*/
             include 'required.php';
         ?>
         <title id="title">Home</title>
