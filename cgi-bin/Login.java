@@ -15,7 +15,7 @@ public class Login {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            String query = "SELECT c_id FROM customer WHERE username = '" + args[0].trim() + "' AND pwd = '" + args[1].trim() + "'";
+            String query = "SELECT c_id FROM customer WHERE lower(username) LIKE '" + args[0].trim().toLowerCase() + "' AND lower(pwd) LIKE '" + args[1].trim().toLowerCase() + "'";
             ResultSet rset = stmt.executeQuery(query);
             int counter = 0;
             while(rset.next()){

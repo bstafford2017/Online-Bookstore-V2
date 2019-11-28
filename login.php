@@ -19,8 +19,8 @@
                 <input id="password" type="password" class="form-control" placeholder="Enter password" required>
                 <small id="hint" class="form-text text-muted">Never let anyone else know your password.</small>
             </div>
-            <button id="login" type="submit" class="btn btn-primary btn-dark offset-sm-2">Login</button>
-            <button id="signup" type="submit" class="btn btn-primary btn-dark offset-sm-2" onclick="window.location='signup.php';">Sign Up</button>
+            <button id="login" type="submit" class="btn btn-primary btn-dark offset-sm-4">Login</button>
+            <button id="signup" type="submit" class="btn btn-primary btn-dark offset-sm-4" onclick="window.location='signup.php';">Sign Up</button>
         </form>
         <form class="col-sm-4 offset-sm-4">
             <label>Source Password:</label>
