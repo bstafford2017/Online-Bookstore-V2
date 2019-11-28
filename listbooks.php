@@ -115,7 +115,7 @@
                 let json = "";
                 for(let i = 0; i < isbn.length; i++){
                     if(i == 0){
-                        json = json + "isbn=" + isbn[i] + "&";
+                        json = json + "isbn=" + isbn[i];
                     } else {
                         json = json + "+" + isbn[i];
                     }
