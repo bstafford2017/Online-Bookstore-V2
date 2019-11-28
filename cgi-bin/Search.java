@@ -25,9 +25,10 @@ public class Search {
                 if(i == 0){
                     query += "WHERE lower(COLUMN_VALUE) IN (";
                 }
-                query += "'" + args[i].trim().toLowerCase() + "',";
                 if(i == args.length - 1){
-                    query += "'" + args[i].trim().toLowerCase() + ") GROUP BY isbn, title, price, COLUMN_VALUE ORDER BY COUNT(*) DESC";
+                    query += "'" + args[i].trim().toLowerCase() + "') GROUP BY isbn, title, price, COLUMN_VALUE ORDER BY COUNT(*) DESC";
+                } else {
+                    query += "'" + args[i].trim().toLowerCase() + "',";
                 }
             }
             if(args.length == 0){
