@@ -30,7 +30,7 @@ public class Search {
                     query += "'" + args[i].trim().toLowerCase() + ") GROUP BY isbn, title, price, COLUMN_VALUE ORDER BY COUNT(*) DESC"
                 }
             }
-            if(args.length == =){
+            if(args.length == 0){
                 query += "GROUP BY isbn, title, price, COLUMN_VALUE";
             }
             ResultSet rset = stmt.executeQuery(query);
