@@ -35,6 +35,7 @@ public class Search {
                 query += "GROUP BY isbn, title, price, COLUMN_VALUE";
             }
             ResultSet rset = stmt.executeQuery(query);
+            int counter = 0;
             while(rset.next()){
                 System.out.println("<tr scope=\"col\">");
                 System.out.println("<td id=\"check\"><input type=\"checkbox\" id=\"select-purchase\"/></td>");
@@ -43,6 +44,10 @@ public class Search {
                 System.out.println("<td id=\"title\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?isbn=" + rset.getString(2) + "\">" + rset.getString(3) + "</a></td>");
                 System.out.println("<td id=\"price\" scope=\"col\">" + rset.getString(4) + "</td>");
                 System.out.println("<td id=\"subject\" scope=\"col\">" + rset.getString(5) + "</td></tr>");
+                counter++;
+            }
+            if(counter == 0){
+                System.out.println("<td></td><td></td><td><center><h4>No results!</h4></center></td>");
             }
         }
         catch (SQLException ex) {
