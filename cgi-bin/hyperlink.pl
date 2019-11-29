@@ -5,6 +5,7 @@ use CGI;
 my $query = new CGI;
 my $isbn = $query->param('isbn');
 my $subjects = $query->param('subjects');
+my $username = $query->param('username');
 
 print("Content-type: text/html\n\n");
 print("<!doctype html><head></head><body>");
@@ -25,7 +26,16 @@ if(defined $subjects){
     $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Hyperlink2 ";
     $cmd = $cmd . $subjects;
 }
-if(!defined $isbn && !defined $subjects){
+
+if(defined $username){
+    my $compile = "/usr/bin/javac Hyperlink3.java";
+    system($compile);
+    
+    $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Hyperlink3 ";
+    $cmd = $cmd . $username;
+}
+
+if(!defined $isbn && !defined $subjects && !defined $username){
     print("<p>No Result</p></body></html>");
     exit(0);
 }
