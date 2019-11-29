@@ -18,7 +18,7 @@
                 type: "get",
                 url: "cgi-bin/listcustomers.cgi",
                 data: {
-                   username: "<?php echo $_SESSION['username']; ?>";
+                   username: "<?php echo $_SESSION['username']; ?>"
                 },
                 success: function(data){
                     $('#table-body').empty();    
