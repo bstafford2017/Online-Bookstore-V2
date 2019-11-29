@@ -18,12 +18,14 @@ public class ListCustomers {
         try {
             Statement stmt = conn.createStatement();
             String query = "";
+            Boolean nullPurchases = true;
             ResultSet rset = stmt.executeQuery("SELECT COUNT(*) FROM customer c, table(c.purchases)");
             if(rset.next()){
                 if(Integer.parseInt(rset.getString(1)) == 0){
                     query += "SELECT c_name, username, pwd FROM customer";
                 } else {
                     query += "SELECT c_name, username, pwd, COLUMN_VALUE FROM customer c, table(c.purchases)";
+                    nullPurchases = false;
                 }
             }
             System.out.println(query);
@@ -33,7 +35,11 @@ public class ListCustomers {
                 System.out.println("<tr id=\"" + rowCounter + "\" scope=\"col\">");
                 System.out.println("<td scope=\"col\">" + resultSet.getString(1) + "</td>");
                 System.out.println("<td scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?username=" + resultSet.getString(2).replace(" ", "+") + "\" style=\"color: white;\">" + resultSet.getString(2) + "</a></td>");
-                System.out.println("<td scope=\"col\">" + resultSet.getString(3) + "</td></tr>");
+                System.out.println("<td scope=\"col\">" + resultSet.getString(3) + "</td>");
+                if(!nullPurchases){
+                    System.out.println("<td scope=\"col\">" + resultSet.getString(4) + "</td>");
+                }
+                System.out.println("</tr>");
                 rowCounter++;
             }
             if(rowCounter == 0){
