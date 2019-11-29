@@ -27,7 +27,9 @@ if(defined $subjects){
     $cmd = $cmd . $subjects;
 }
 
+print("before");
 if(defined $username){
+    print("after");
     my $compile = "/usr/bin/javac Hyperlink3.java";
     system($compile);
     
