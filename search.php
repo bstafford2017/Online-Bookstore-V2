@@ -135,10 +135,24 @@
 
             $("#purchase").click(function(e){
                 e.preventDefault();
+                let isbn = [];
+                $("input:checkbox:checked").each(function(){
+                    isbn.push($(this).val());
+                });
+                let json = <?php echo $_SESSION['username'];?>;
+                json += "+"
+                for(let i = 0; i < isbn.length; i++){
+                    if(i == 0){
+                        json = json + "isbn=" + isbn[i];
+                    } else {
+                        json = json + "+" + isbn[i];
+                    }
+                }
+                console.log(json);
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/purchase.cgi",
-                    data: {"isbn": isbn},
+                    data: {"isbn": json},
                     success: function(data){
                         $('#alert').empty();
                         $('#alert').append('<div class="alert alert-success" class="col-sm-8 offset-sm-2" role="alert">Successfully purchases books</div>');
