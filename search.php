@@ -139,14 +139,9 @@
                 $("input:checkbox:checked").each(function(){
                     isbn.push($(this).val());
                 });
-                let json = "<?php echo $_SESSION['username'];?>";
-                json += "+"
+                let json = "isbn=<?php echo $_SESSION['username'];?>";
                 for(let i = 0; i < isbn.length; i++){
-                    if(i == 0){
-                        json = json + "isbn=" + isbn[i];
-                    } else {
-                        json = json + "+" + isbn[i];
-                    }
+                    json = json + "+" + isbn[i];
                 }
                 console.log(json);
                 $.ajax({
