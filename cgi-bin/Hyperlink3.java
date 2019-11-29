@@ -20,9 +20,9 @@ public class Hyperlink2 {
             int counter = 0;
             while(rset.next()){
                 if(counter == 0) {
-                    System.out.println("<p>Name: " rset.getString(1) + "</p><p>Username: " + rset.getString(3) + "</p><p>Password: " + rset.getString(1) + "</p><p>Purchases: ");
+                    System.out.println("<p>Name: " rset.getString(1) + "</p><p>Username: " + rset.getString(3) + "</p><p>Password: " + rset.getString(1) + "</p><p>Purchases: " + rset.getString(4) + " ");
                 } else {
-                    System.out.println(rset.getString(4));
+                    System.out.println(rset.getString(4) + " ");
                 }
                 counter++;
             }
