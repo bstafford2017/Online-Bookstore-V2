@@ -32,7 +32,7 @@ public class ListCustomers {
             while(resultSet.next()){
                 System.out.println("<tr id=\"" + rowCounter + "\" scope=\"col\">");
                 System.out.println("<td scope=\"col\">" + resultSet.getString(1) + "</td>");
-                System.out.println("<td scope=\"col\"><a href=\"hyperlink.cgi?username=" + resultSet.getString(2) + "\">" + resultSet.getString(2) + "</a></td>");
+                System.out.println("<td scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?username=" + resultSet.getString(2) + "\">" + resultSet.getString(2) + "</a></td>");
                 System.out.println("<td scope=\"col\">" + resultSet.getString(3) + "</td></tr>");
                 rowCounter++;
             }
