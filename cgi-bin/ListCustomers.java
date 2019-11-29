@@ -18,6 +18,10 @@ public class ListCustomers {
         try {
             Statement stmt = conn.createStatement();
             String query = "";
+
+            Boolean admin = isAdmin(args[0].trim(), stmt);
+
+            // Check if purchases is NULL
             Boolean nullPurchases = true;
             ResultSet rset = stmt.executeQuery("SELECT COUNT(*) FROM customer c, table(c.purchases)");
             if(rset.next()){
@@ -27,6 +31,11 @@ public class ListCustomers {
                     query += "SELECT c_name, username, pwd, COLUMN_VALUE FROM customer c, table(c.purchases)";
                     nullPurchases = false;
                 }
+            }
+
+            // If not admin, add WHERE to specify username
+            if(!admin){
+                query += " WHERE username LIKE '%" + args[0].trim() + "%'";
             }
             System.out.println(query);
             ResultSet resultSet = stmt.executeQuery(query);
@@ -52,5 +61,16 @@ public class ListCustomers {
             System.out.println(ex);
         }
         conn.close();
+    }
+
+    public boolean isAdmin(Boolean username, Statement stmt){
+        ResultSet set = stmt.executeQuery("SELECT admin FROM customer WHERE username LIKE '%" + username + "%'");
+        if(set.next()){
+            if(set.getString(1).equals("1")){
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 }

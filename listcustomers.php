@@ -17,6 +17,9 @@
             $.ajax({
                 type: "get",
                 url: "cgi-bin/listcustomers.cgi",
+                data: {
+                   username: "<?php echo $_SESSION['username']; ?>";
+                },
                 success: function(data){
                     $('#table-body').empty();    
                     $('#table-body').append(data);
