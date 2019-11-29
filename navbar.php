@@ -5,7 +5,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse col-sm-12" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a id="home" class="nav-link" href="index.php">Home</a>
             </li>
@@ -22,7 +22,7 @@
                 <a class="nav-link" href="listcustomers.php">List Customers</a>
             </li>
         </ul>
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav">
             <li class="nav-item">
                 <a id="signout" class="nav-link" href="#">Sign Out</a>
             </li>
