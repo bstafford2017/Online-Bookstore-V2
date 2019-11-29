@@ -147,7 +147,7 @@
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/purchase.cgi",
-                    data: {"isbn": json},
+                    data: json,
                     success: function(data){
                         $('#alert').empty();
                         $('#alert').append('<div class="alert alert-success" class="col-sm-8 offset-sm-2" role="alert">Successfully purchases books</div>');
