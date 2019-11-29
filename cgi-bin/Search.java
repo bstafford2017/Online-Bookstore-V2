@@ -38,7 +38,7 @@ public class Search {
             int counter = 0;
             while(rset.next()){
                 System.out.println("<tr scope=\"col\">");
-                System.out.println("<td id=\"check\"><input type=\"checkbox\" id=\"select-purchase\"/></td>");
+                System.out.println("<td scope=\"col\"><input type=\"checkbox\" name=\"isbn\" value=\"" + rset.getString(2) + "\"/></td>");
                 System.out.println("<td id=\"count\">" + rset.getString(1) + "</td>");
                 System.out.println("<td id=\"isbn\">" + rset.getString(2) + "</td>");
                 System.out.println("<td id=\"title\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?isbn=" + rset.getString(2) + "\" style=\"color: white\">" + rset.getString(3) + "</a></td>");
