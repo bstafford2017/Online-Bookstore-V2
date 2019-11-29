@@ -54,7 +54,7 @@
                 <button id="purchase" type="submit" class="col-sm-2 offset-sm-1 btn btn-dark">Purchase</button>
             </div>
             <div class="row">
-                <table class="table table-striped table-dark col-sm-6 offset-sm-3" style="margin-top: 2%;">
+                <table id="table" class="table table-striped table-dark col-sm-6 offset-sm-3" style="margin-top: 2%;">
                     <thead>
                         <tr>
                             <th scope="col">Select</th>
@@ -136,7 +136,7 @@
             $("#purchase").click(function(e){
                 e.preventDefault();
                 let isbn = [];
-                $("table:input:checkbox:checked").each(function(){
+                $('#table').find('input[type="checkbox"]:checked').each(function(){
                     isbn.push($(this).parents('tr').find('#isbn').val());
                 });
                 let json = "isbn=<?php echo $_SESSION['username'];?>";
