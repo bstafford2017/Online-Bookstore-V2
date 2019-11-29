@@ -15,7 +15,7 @@ public class Hyperlink2 {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            String query = "SELECT c_name, username, pwd, COLUMN_VALUE FROM customer c, table(c.purchases) WHERE username LIKE '%" + args[0].trim().toLowerCase() + "";
+            String query = "SELECT c_name, username, pwd, COLUMN_VALUE FROM customer c, table(c.purchases) WHERE username LIKE '%" + args[0].trim().toLowerCase() + "%'";
             ResultSet rset = stmt.executeQuery(query);
             int counter = 0;
             while(rset.next()){
