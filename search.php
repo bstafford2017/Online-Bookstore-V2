@@ -136,11 +136,8 @@
             $("#purchase").click(function(e){
                 e.preventDefault();
                 let isbn = [];
-                let i = 0;
                 $('#table').find('input:checkbox:checked').each(function(){
-                    console.log(i);
-                    isbn.push($(this).parents('tr').find('#isbn').val());
-                    i++
+                    isbn.push($(this).val());
                 });
                 let json = "isbn=<?php echo $_SESSION['username'];?>";
                 for(let i = 0; i < isbn.length; i++){
