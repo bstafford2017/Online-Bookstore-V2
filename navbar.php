@@ -21,6 +21,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="listcustomers.php">List Customers</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="listall.php">List All</a>
+            </li>
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item">
