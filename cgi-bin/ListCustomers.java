@@ -64,7 +64,7 @@ public class ListCustomers {
         conn.close();
     }
 
-    public boolean isAdmin(Boolean username, Statement stmt){
+    public boolean isAdmin(String username, Statement stmt){
         ResultSet set = stmt.executeQuery("SELECT admin FROM customer WHERE username LIKE '%" + username + "%'");
         if(set.next()){
             if(set.getString(1).equals("1")){
