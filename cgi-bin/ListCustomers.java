@@ -22,7 +22,7 @@ public class ListCustomers {
             Boolean admin = ListCustomers.isAdmin(args[0].trim(), stmt);
 
             // Check if purchases is NULL
-            Boolean nullPurchases = true;
+            /*Boolean nullPurchases = true;
             ResultSet rset = stmt.executeQuery("SELECT COUNT(*) FROM customer c, table(c.purchases)(+)");
             if(rset.next()){
                 if(Integer.parseInt(rset.getString(1)) == 0){
@@ -31,13 +31,14 @@ public class ListCustomers {
                     query += "SELECT c_admin, c_name, username, pwd, COLUMN_VALUE FROM customer c, table(c.purchases)(+)";
                     nullPurchases = false;
                 }
-            }
+            }*/
+            query += "SELECT c_admin, c_name, username, pwd, COLUMN_VALUE FROM customer c, table(c.purchases)(+)";
 
             // If not admin, add WHERE to specify username
             if(!admin){
                 query += " WHERE username LIKE '%" + args[0].trim() + "%'";
             }
-            System.out.println(query);
+            System.out.println("\n" + query);
             ResultSet resultSet = stmt.executeQuery(query);
             int rowCounter = 0;
             while(resultSet.next()){
