@@ -47,8 +47,6 @@
         <?php
             include 'navbar.php';
         ?>
-        <h2 style="text-align:center;">Welcome to the bookstore!</h2>
-
         <table class="table table-striped table-dark col-sm-6 offset-sm-4" style="margin-top: 2%;">
             <thead>
                 <tr>
