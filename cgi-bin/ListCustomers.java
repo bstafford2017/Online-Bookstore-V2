@@ -19,7 +19,7 @@ public class ListCustomers {
             Statement stmt = conn.createStatement();
             String query = "";
 
-            Boolean admin = isAdmin(args[0].trim(), stmt);
+            Boolean admin = ListCustomers.isAdmin(args[0].trim(), stmt);
 
             // Check if purchases is NULL
             Boolean nullPurchases = true;
@@ -64,7 +64,7 @@ public class ListCustomers {
         conn.close();
     }
 
-    public boolean isAdmin(String username, Statement stmt){
+    public static boolean isAdmin(String username, Statement stmt){
         ResultSet set = stmt.executeQuery("SELECT admin FROM customer WHERE username LIKE '%" + username + "%'");
         if(set.next()){
             if(set.getString(1).equals("1")){
