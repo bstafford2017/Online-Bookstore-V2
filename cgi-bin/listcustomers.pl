@@ -8,7 +8,7 @@ my $username = $query->param('username');
 my $compile = "/usr/bin/javac ListCustomers.java";
 system($compile);
 
-my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom ListCustomers ";
+my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom ListCustomers";
 
 if(defined $username){
     $cmd = $cmd . " " . $username;
