@@ -65,13 +65,17 @@ public class ListCustomers {
     }
 
     public static boolean isAdmin(String username, Statement stmt){
-        ResultSet set = stmt.executeQuery("SELECT admin FROM customer WHERE username LIKE '%" + username + "%'");
-        if(set.next()){
-            if(set.getString(1).equals("1")){
-                return true;
-            } else {
-                return false;
+        try{
+            ResultSet set = stmt.executeQuery("SELECT admin FROM customer WHERE username LIKE '%" + username + "%'");
+            if(set.next()){
+                if(set.getString(1).equals("1")){
+                    return true;
+                } else {
+                    return false;
+                }
             }
+        } catch (SQLException ex) {
+            System.out.println(ex);
         }
     }
 }
