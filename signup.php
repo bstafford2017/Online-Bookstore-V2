@@ -66,7 +66,8 @@
             });
             $('#signup').click(function(e){
                 e.preventDefault();
-                console.log($('#name').val() + " " + $('#username').val() + " " + )$('#password').val() + " " + $('#admin').val());
+
+                console.log($('#name').val() + " " + $('#username').val() + " " + $('#password').val() + " " + $('#admin').val());
                 $.ajax({
                     type: "post",
                     url: "cgi-bin/signup.cgi",
