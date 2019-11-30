@@ -26,8 +26,8 @@
             <div class="form-group">
                 <label>Administrator</label>
                 <select id="admin" class="custom-select">
-                    <option value="volvo">Yes</option>
-                    <option value="saab">No</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
                 </select>
             </div>
             <button id="signup" type="submit" class="btn btn-primary btn-dark offset-sm-4 col-sm-4">Sign Up</button>
@@ -66,7 +66,6 @@
             });
             $('#signup').click(function(e){
                 e.preventDefault();
-                console.log($('#name').val() + " " + $('#username').val() + " " + $('#password').val() + " " + $('option:selected').val());
                 $.ajax({
                     type: "post",
                     url: "cgi-bin/signup.cgi",
