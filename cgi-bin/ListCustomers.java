@@ -77,5 +77,6 @@ public class ListCustomers {
         } catch (SQLException ex) {
             System.out.println(ex);
         }
+        return false;
     }
 }
