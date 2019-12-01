@@ -10,7 +10,7 @@ my $compile = "/usr/bin/javac Purchase.java";
 system($compile);
 my $cmd = "";
 if(!defined $search){
-    $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Purchase ";
+    $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Purchase " . $search;
     system($cmd);
 }
 print($cmd);
