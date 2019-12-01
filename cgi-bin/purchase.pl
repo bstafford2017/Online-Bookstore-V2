@@ -13,3 +13,4 @@ if(!defined $search){
     $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Purchase ";
     system($cmd);
 }
+print($cmd);
