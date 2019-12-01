@@ -25,9 +25,13 @@ public class Search {
             */
             String query = "UPDATE customer SET purchases = purchase_table(";
             for(int i = 1; i < args.length; i++){
-                query += args[i].trim();
+                if(i == args.length - 1){
+                    query += args[i].trim();
+                } else {
+                    query = query + args[i].trim() + ", ";
+                }
             }
-            query = query + ") WHERE username = '" + args[0].trim() "'";
+            query = query + ") WHERE username = '" + args[0].trim() + "'";
             stmt.executeUpdate(query);
             System.out.println(query);
         }
