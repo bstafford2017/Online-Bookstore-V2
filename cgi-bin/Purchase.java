@@ -31,7 +31,7 @@ public class Purchase {
                     query = query + args[i].trim() + ", ";
                 }
             }
-            query += ")"
+            query += ")";
             stmt.executeUpdate(query);
             System.out.println(query);
         }
