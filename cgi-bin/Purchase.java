@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.Comparator;
 import java.util.Collections;
 
-public class Search {
+public class Purchases {
     public static void main(String[] args) throws SQLException {
         String user     = "C##benjamin.stafford";
         String password = "stafford6248";
