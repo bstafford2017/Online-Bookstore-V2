@@ -23,7 +23,7 @@ public class Purchase {
             /*
                 args[] = {username, isbn0, isbn1, ... }
             */
-            String query = "UPDATE customer SET purchases = purchase_table(";
+            String query = "INSERT INTO table(SELECT purchases FROM customer WHERE username LIKE '" + args[0].trim() + "') VALUES (";
             for(int i = 1; i < args.length; i++){
                 if(i == args.length - 1){
                     query += args[i].trim();
@@ -31,7 +31,7 @@ public class Purchase {
                     query = query + args[i].trim() + ", ";
                 }
             }
-            query = query + ") WHERE username = '" + args[0].trim() + "'";
+            query += ")"
             stmt.executeUpdate(query);
             System.out.println(query);
         }
