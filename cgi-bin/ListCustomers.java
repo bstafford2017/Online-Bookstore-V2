@@ -24,6 +24,7 @@ public class ListCustomers {
             // Check if purchases is NULL
             Boolean nullPurchases = true;
             ResultSet rset = stmt.executeQuery("SELECT COUNT(*) FROM customer c, table(c.purchases)(+)");
+            System.out.println("\nSELECT COUNT(*) FROM customer c, table(c.purchases)(+)"); 
             if(rset.next()){
                 if(Integer.parseInt(rset.getString(1)) == 0){
                     query += "SELECT c_admin, c_name, username, pwd FROM customer";
