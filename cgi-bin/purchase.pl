@@ -8,9 +8,9 @@ my $search = $query->param('isbn');
 print("Content-type: text/html\n\n");
 my $compile = "/usr/bin/javac Purchase.java";
 system($compile);
-my $cmd = "";
 if(!defined $search){
-    $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Purchase " . $search;
-    system($cmd);
+    exit(0);
 }
+my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom Purchase " . $search;
 print($cmd);
+system($cmd);
