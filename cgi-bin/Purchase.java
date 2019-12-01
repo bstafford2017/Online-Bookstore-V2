@@ -28,7 +28,8 @@ public class Search {
                 query += args[i].trim();
             }
             query = query + ") WHERE username = '" + args[0].trim() "'";
-            
+            stmt.executeUpdate(query);
+            System.out.println(query);
         }
         catch (SQLException ex) {
             System.out.println(ex);

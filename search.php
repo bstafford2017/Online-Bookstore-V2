@@ -149,7 +149,7 @@
                     data: json,
                     success: function(data){
                         $('#alert').empty();
-                        $('#alert').append('<div class="alert alert-success" class="col-sm-8 offset-sm-2" role="alert">Successfully purchases books</div>');
+                        $('#alert').append('<div class="alert alert-success" class="col-sm-8 offset-sm-2" role="alert">Successfully purchases books!</div>');
                     },
                     error: function(data){
                         $('#alert').empty();
