@@ -28,7 +28,7 @@ public class Purchase {
             ResultSet rset = stmt.executeQuery(checkNull);
             Boolean nullTable = false;
             if(rset.next()){
-                if(rset.getString(1).equals("(null)") || rset.getString(1).equals("null"){
+                if(rset.getString(1).equals("(null)") || rset.getString(1).equals("null") || rset.wasNull()){
                     nullTable = true;
                 }
             }
