@@ -26,11 +26,13 @@ public class Purchase {
             String checkNull = "SELECT COLUMN_VALUE FROM customer c, table(c.purchases)(+) WHERE username LIKE '" + args[0].trim() + "'";
             System.out.println("\n" + checkNull);
             ResultSet rset = stmt.executeQuery(checkNull);
-            int counter = 0;
+            Boolean nullTable = false;
             if(rset.next()){
-                counter++;
+                if(rset.getString(1).equals("(null)") || rset.getString(1).equals("null"){
+                    nullTable = true;
+                }
             }
-            if(counter == 0){
+            if(nullTable){
                 String update = "UPDATE customer c SET c.purchases = NEW purchases_list() WHERE username LIKE '" + args[0].trim() + "'";
                 System.out.println(update);
                 stmt.executeUpdate(update);
