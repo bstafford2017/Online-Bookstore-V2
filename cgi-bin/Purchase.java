@@ -32,8 +32,8 @@ public class Purchase {
             }
             if(counter == 0){
                 String update = "UPDATE customer c SET c.purchases = NEW purchases_list() WHERE username LIKE '" + args[0].trim() + "'";
+                System.out.println(update);
                 stmt.executeUpdate(update);
-                System.out.println("\n" + update);
             }
             for(int i = 1; i < args.length; i++){
                 String query = "INSERT INTO table(SELECT purchases FROM customer WHERE username LIKE '" + args[0].trim() + "') VALUES (" + args[i].trim() + ")";
