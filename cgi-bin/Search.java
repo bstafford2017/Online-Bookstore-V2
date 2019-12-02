@@ -20,7 +20,7 @@ public class Search {
         Connection conn = ods.getConnection();
         Statement stmt = conn.createStatement();
         try {
-            String query = "SELECT COUNT(*), isbn, title, price FROM book b, table(b.purchases)(+) ";
+            String query = "SELECT COUNT(*), isbn, title, price FROM book b, table(b.subjects)(+) ";
             for(int i = 0; i < args.length; i++){
                 if(i == 0){
                     query += "WHERE lower(COLUMN_VALUE) IN (";
