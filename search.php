@@ -61,7 +61,7 @@
                             <th scope="col">ISBN</th>
                             <th scope="col">Title</th>
                             <th scope="col">Price</th>
-                            <th scope="col">Subject(s)</th>
+                            <th scope="col">Quantity</th>
                         </tr>
                     </thead>
                     <tbody id="table-body">
@@ -136,7 +136,11 @@
                 e.preventDefault();
                 let isbn = [];
                 $('#table').find('input:checkbox:checked').each(function(){
-                    isbn.push($(this).val());
+                    let quantity = $(this).parents('tr').find('#quantity').val();
+                    let i;
+                    for(i = 0; i < quantity; i++){
+                        isbn.push($(this).val());
+                    }
                 });
                 let json = "isbn=<?php echo $_SESSION['username'];?>";
                 for(let i = 0; i < isbn.length; i++){
