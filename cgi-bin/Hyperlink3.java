@@ -29,7 +29,7 @@ public class Hyperlink3 {
                     String purchaseData = "SELECT isbn, title, price FROM book b WHERE isbn = " + rset.getString(4);
                     ResultSet result = innerstmt.executeQuery(purchaseData);
                     while(result.next()){
-                        System.out.println("<br/><br/>ISBN: " + result.getString(1) + "<br/>Title: " + result.getString(2) + "<br/>Price: " + result.getString(3) + "<br/>");
+                        System.out.println("<br/><br/>ISBN: " + result.getString(1) + "<br/>Title: " + result.getString(2) + "<br/>Price: " + result.getString(3) + "<br/>Quantity: <br/>");
                     }
                     list.add(rset.getString(4));
                     result.close();
