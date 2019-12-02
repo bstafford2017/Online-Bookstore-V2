@@ -47,6 +47,7 @@ public class ListCustomers {
                     rowCounter++;
                 }
             }
+            System.out.println(list.toString());
             if(rowCounter == 0){
                 System.out.println("<td></td><td></td><td><center><h4>No results!</h4></center></td>");
             }
