@@ -16,13 +16,20 @@ public class Hyperlink3 {
         try {
             Statement stmt = conn.createStatement();
             String query = "SELECT c_name, username, pwd, COLUMN_VALUE FROM customer c, table(c.purchases)(+) WHERE username LIKE '%" + args[0].trim().toLowerCase() + "%'";
+            System.out.println("\n" + query);
             ResultSet rset = stmt.executeQuery(query);
             int counter = 0;
             while(rset.next()){
                 if(counter == 0) {
-                    System.out.println("<p>Name: " + rset.getString(1) + "</p><p>Username: " + rset.getString(2) + "</p><p>Password: " + rset.getString(3) + "</p><p>Purchases: " + rset.getString(4) + " ");
+                    System.out.println("<p>Name: " + rset.getString(1) + "</p><p>Username: " + rset.getString(2) + "</p><p>Password: " + rset.getString(3) + "</p><p>Purchases: ";
                 } else {
                     System.out.println(rset.getString(4) + " ");
+                }
+                String purchaseData = "SELECT isbn, title, price FROM book b WHERE isbn = " + rset.getString(4);
+                System.out.println(purchaseData);
+                ResultSet result = stmt.executeQuery(purchaseData);
+                while(result.next()){
+                    System.out.println("<br/>ISBN: " + result.getString(1) + "<br/>Title: " + result.getString(2) + "<br/>Price: " + result.getString(3) + "<br/>");
                 }
                 counter++;
             }
