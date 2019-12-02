@@ -20,19 +20,19 @@ public class Search {
         Connection conn = ods.getConnection();
         Statement stmt = conn.createStatement();
         try {
-            String query = "SELECT COUNT(*), isbn, title, price, COLUMN_VALUE FROM book b, table(b.subjects) ";
+            String query = "SELECT COUNT(*), isbn, title, price FROM book b, table(b.purchases) ";
             for(int i = 0; i < args.length; i++){
                 if(i == 0){
                     query += "WHERE lower(COLUMN_VALUE) IN (";
                 }
                 if(i == args.length - 1){
-                    query += "'" + args[i].trim().toLowerCase() + "') GROUP BY isbn, title, price, COLUMN_VALUE ORDER BY COUNT(*) DESC";
+                    query += "'" + args[i].trim().toLowerCase() + "') GROUP BY isbn, title, price ORDER BY COUNT(*) DESC";
                 } else {
                     query += "'" + args[i].trim().toLowerCase() + "',";
                 }
             }
             if(args.length == 0){
-                query += "GROUP BY isbn, title, price, COLUMN_VALUE";
+                query += "GROUP BY isbn, title, price ";
             }
             ResultSet rset = stmt.executeQuery(query);
             int counter = 0;
