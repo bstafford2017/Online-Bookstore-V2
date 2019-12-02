@@ -23,7 +23,7 @@ public class Purchase {
             /*
                 args[] = {username, isbn0, isbn1, ... }
             */
-            String checkNull = "SELECT COLUMN_VALUE FROM customer c, table(c.purchases) WHERE username LIKE '" + args[0].trim() + "'";
+            String checkNull = "SELECT COLUMN_VALUE FROM customer c, table(c.purchases)(+) WHERE username LIKE '" + args[0].trim() + "'";
             System.out.println("\n" + checkNull);
             ResultSet rset = stmt.executeQuery(checkNull);
             int counter = 0;
