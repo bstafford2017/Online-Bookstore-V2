@@ -23,9 +23,21 @@ public class Purchase {
             /*
                 args[] = {username, isbn0, isbn1, ... }
             */
+            String checkNull = "SELECT COLUMN_VALUE FROM customer c, table(c.purchases) WHERE username LIKE '" + args[0].trim() + "'";
+            System.out.println("\n" + checkNull);
+            ResultSet rset = stmt.executeQuery(checkNull);
+            int counter = 0;
+            if(rset.next()){
+                counter++;
+            }
+            if(counter == 0){
+                String update = "UPDATE customer c SET c.purchases = NEW purchases_list() WHERE username LIKE '" + args[0].trim() + "'";
+                stmt.executeUpdate(update);
+                System.out.println("\n" + update);
+            }
             for(int i = 1; i < args.length; i++){
                 String query = "INSERT INTO table(SELECT purchases FROM customer WHERE username LIKE '" + args[0].trim() + "') VALUES (" + args[i].trim() + ")";
-                System.out.println("\n" + query);
+                System.out.println(query);
                 stmt.executeUpdate(query);
             }
         }
