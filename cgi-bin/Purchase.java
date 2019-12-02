@@ -33,7 +33,7 @@ public class Purchase {
                 }
             }
             if(nullTable){
-                String update = "UPDATE customer c SET c.purchases = NEW purchases_list() WHERE username LIKE '" + args[0].trim() + "'";
+                String update = "UPDATE customer SET purchases = NEW purchases_list() WHERE username LIKE '" + args[0].trim() + "'";
                 System.out.println(update);
                 stmt.executeUpdate(update);
             }
