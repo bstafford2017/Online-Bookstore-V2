@@ -20,7 +20,7 @@ public class ListBooks {
             ResultSet rset = stmt.executeQuery("SELECT isbn, title, price FROM book");
             int rowCounter = 0;
             while(rset.next()){
-                if(args.length = 0{
+                if(args.length == 0){
                     System.out.println("<tr id=\"" + rowCounter + "\" scope=\"col\">");
                     System.out.println("<td scope=\"col\"><input type=\"checkbox\" name=\"isbn\" value=\"" + rset.getString(1) + "\"/></td>");
                     System.out.println("<td scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?isbn=" + rset.getString(1) + "\" style=\"color: white;\">" + rset.getString(2) + "</a></td>");
