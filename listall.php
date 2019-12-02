@@ -67,7 +67,6 @@
                     <th scope="col">Username</th>
                     <th scope="col">Password</th>
                     <th scope="col">Admin</th>
-                    <th scope="col">Purchases</th>
                 </tr>
             </thead>
             <tbody id="customer-table-body">
