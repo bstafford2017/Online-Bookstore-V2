@@ -15,7 +15,10 @@
         <script type="text/javascript">
             $.ajax({
                 type: "get",
-                url: "cgi-bin/search.cgi",
+                url: "cgi-bin/listbooks.cgi",
+                data: {
+                    flag: "flag"
+                },
                 success: function(data){
                     $('#book-table-body').empty();                
                     $('#book-table-body').append(data);

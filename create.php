@@ -116,7 +116,6 @@
                 subjects = subjects.substring(0, subjects.length - 1);
 
                 let json = "isbn=" + isbn + "&title=" + title + "&price=" + price + "&subjects=" + subjects;
-                alert(json);
                 $.ajax({
                     type: "get",
                     url: "cgi-bin/create.cgi",
