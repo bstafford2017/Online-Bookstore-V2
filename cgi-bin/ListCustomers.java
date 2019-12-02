@@ -46,7 +46,7 @@ public class ListCustomers {
             if(rowCounter == 0){
                 System.out.println("<td></td><td></td><td><center><h4>No results!</h4></center></td>");
             }
-            rset.close();
+            resultSet.close();
             stmt.close();
         }
         catch (SQLException ex) {
