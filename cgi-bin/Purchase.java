@@ -32,8 +32,8 @@ public class Purchase {
                 }
             }
             query += ")";
+            System.out.println("\n" + query);
             stmt.executeUpdate(query);
-            System.out.println(query);
         }
         catch (SQLException ex) {
             System.out.println(ex);
