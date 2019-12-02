@@ -21,7 +21,7 @@ public class ListCustomers {
 
             Boolean admin = ListCustomers.isAdmin(args[0].trim(), stmt);
             
-            query += "SELECT c_admin, c_name, username, pwd, COLUMN_VALUE FROM customer c, table(c.purchases)(+)";
+            query += "SELECT c_admin, c_name, username, pwd FROM customer";
             
             // If not admin, add WHERE to specify username
             if(!admin){
@@ -35,9 +35,10 @@ public class ListCustomers {
                 System.out.println("<td scope=\"col\">" + resultSet.getString(2) + "</td>");
                 System.out.println("<td scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?username=" + resultSet.getString(3).replace(" ", "+") + "\" style=\"color: white;\">" + resultSet.getString(3) + "</a></td>");
                 System.out.println("<td scope=\"col\">" + resultSet.getString(4) + "</td>");
-                System.out.println("<td scope=\"col\">" + resultSet.getString(1) + "</td>");
-                if(!nullPurchases){
-                    System.out.println("<td scope=\"col\">" + resultSet.getString(5) + "</td>");
+                if(resultSet.getString(1).equals("1")){
+                    System.out.println("<td scope=\"col\">Yes</td>");
+                } else {
+                    System.out.println("<td scope=\"col\">No</td>");
                 }
                 System.out.println("</tr>");
                 rowCounter++;
