@@ -21,7 +21,7 @@ public class Hyperlink3 {
             int counter = 0;
             while(rset.next()){
                 if(counter == 0) {
-                    System.out.println("<p>Name: " + rset.getString(1) + "</p><p>Username: " + rset.getString(2) + "</p><p>Password: " + rset.getString(3) + "</p><p>Purchases: ";
+                    System.out.println("<p>Name: " + rset.getString(1) + "</p><p>Username: " + rset.getString(2) + "</p><p>Password: " + rset.getString(3) + "</p><p>Purchases: ");
                 } else {
                     System.out.println(rset.getString(4) + " ");
                 }
