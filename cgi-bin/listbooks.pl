@@ -10,9 +10,10 @@ print("Content-type: text/html\n\n");
 my $compile = "/usr/bin/javac ListBooks.java";
 system($compile);
 
+my $cmd = "";
 if(!defined $flag){
-    my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom ListBooks ";
+    $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom ListBooks ";
 } else {
-    my $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom ListBooks " . $flag;
+    $cmd = "/usr/bin/java -Djava.security.egd=file:/dev/./urandom ListBooks " . $flag;
 }
 system($cmd);
