@@ -15,7 +15,7 @@ public class Hyperlink2 {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            String query = "SELECT title, isbn, COLUMN_VALUE FROM book b, table(b.subjects) WHERE lower(COLUMN_VALUE) LIKE '%" + args[0].trim().replace("-", " ").toLowerCase() + "%'";
+            String query = "SELECT title, isbn, COLUMN_VALUE FROM book b, table(b.subjects)(+) WHERE lower(COLUMN_VALUE) LIKE '%" + args[0].trim().replace("-", " ").toLowerCase() + "%'";
             ResultSet rset = stmt.executeQuery(query);
             int counter = 0;
             while(rset.next()){
