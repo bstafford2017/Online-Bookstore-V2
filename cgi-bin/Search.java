@@ -37,13 +37,13 @@ public class Search {
         Statement stmt = conn.createStatement();
         try {
             LinkedList<Tuple> list = new LinkedList<>();
-            String query = "SELECT isbn, title, price FROM book b, table(b.subjects)(+) ";
+            String query = "SELECT isbn, title, price, COLUMN_VALUE FROM book b, table(b.subjects)(+) ";
             for(int i = 0; i < args.length; i++){
                 if(i == 0){
                     query += "WHERE lower(COLUMN_VALUE) LIKE '%" + args[i].trim() + "%' ";
                 }
                 if(i == args.length - 1){
-                    query += "OR '%" + args[i].trim().toLowerCase() + "%'";
+                    query += "OR lower(COLUMN_VALUE) '%" + args[i].trim().toLowerCase() + "%'";
                 } else {
                     query += "OR lower(COLUMN_VALUE) LIKE '%" + args[i].trim() + "%'";
                 }
