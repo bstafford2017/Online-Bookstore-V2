@@ -40,13 +40,9 @@ public class Search {
             String query = "SELECT isbn, title, price, COLUMN_VALUE FROM book b, table(b.subjects)(+) ";
             for(int i = 0; i < args.length; i++){
                 if(i == 0){
-                    query += "WHERE lower(COLUMN_VALUE) LIKE '%" + args[i].trim() + "%' ";
+                    query += "WHERE lower(COLUMN_VALUE) LIKE '%" + args[i].trim().toLowerCase() + "%' ";
                 }
-                if(i == args.length - 1){
-                    query += "OR lower(COLUMN_VALUE) LIKE '%" + args[i].trim().toLowerCase() + "%'";
-                } else {
-                    query += "OR lower(COLUMN_VALUE) LIKE '%" + args[i].trim() + "%'";
-                }
+                query += "OR lower(COLUMN_VALUE) LIKE '%" + args[i].trim().toLowerCase() + "%'";
             }
             ResultSet rset = stmt.executeQuery(query);
             int counter = 0;
