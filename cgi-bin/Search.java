@@ -44,7 +44,7 @@ public class Search {
                 if(i == args.length - 1){
                     query += "OR '" + args[i].trim().toLowerCase() + "') GROUP BY isbn, title, price ORDER BY COUNT(*) DESC";
                 } else {
-                    query += "OR lower(COLUMN_VALUE) LIKE '%" + args[i].trim() + "%'"
+                    query += "OR lower(COLUMN_VALUE) LIKE '%" + args[i].trim() + "%'";
                 }
             }
             if(args.length == 0){
