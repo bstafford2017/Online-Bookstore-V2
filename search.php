@@ -113,7 +113,7 @@
                 }
 
                 $("input:checkbox:checked").each(function(){
-                    search = search + $(this).val() + "+";
+                    search = search + $(this).val() + " ";
                 });
 
                 search = search.substring(0, search.length - 1);
