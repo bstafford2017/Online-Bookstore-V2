@@ -36,6 +36,7 @@ public class Search {
         Connection conn = ods.getConnection();
         Statement stmt = conn.createStatement();
         try {
+            LinkedList<Tuple> list = new LinkedList<>();
             String query = "SELECT isbn, title, price FROM book b, table(b.subjects)(+) ";
             for(int i = 0; i < args.length; i++){
                 if(i == 0){
