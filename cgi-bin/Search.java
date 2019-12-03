@@ -43,7 +43,7 @@ public class Search {
                     query += "WHERE lower(COLUMN_VALUE) LIKE '%" + args[i].trim() + "%' ";
                 }
                 if(i == args.length - 1){
-                    query += "OR lower(COLUMN_VALUE) '%" + args[i].trim().toLowerCase() + "%'";
+                    query += "OR lower(COLUMN_VALUE) LIKE '%" + args[i].trim().toLowerCase() + "%'";
                 } else {
                     query += "OR lower(COLUMN_VALUE) LIKE '%" + args[i].trim() + "%'";
                 }
