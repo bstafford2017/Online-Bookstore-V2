@@ -44,7 +44,7 @@ public class ListCustomers {
                 rowCounter++;
             }
             if(rowCounter == 0){
-                System.out.println("<td></td><td></td><td><center><h4>No results!</h4></center></td>");
+                System.out.println("<td></td><td><center><h4>No results!</h4></center></td>");
             }
             resultSet.close();
             stmt.close();
