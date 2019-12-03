@@ -45,6 +45,7 @@ public class Search {
                     query += "OR lower(COLUMN_VALUE) LIKE '%" + args[i].trim().toLowerCase() + "%'";
                 }
             }
+            System.out.println(query);
             ResultSet rset = stmt.executeQuery(query);
             int counter = 0;
             while(rset.next()){
