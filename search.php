@@ -62,6 +62,7 @@
                             <th scope="col">Title</th>
                             <th scope="col">Price</th>
                             <th scope="col">Quantity</th>
+                            <th scope="col">Subject(s)</th>
                         </tr>
                     </thead>
                     <tbody id="table-body">
