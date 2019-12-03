@@ -74,14 +74,14 @@ public class Search {
                 System.out.println("<td scope=\"col\"><input type=\"checkbox\" value=\"" + current.isbn + "\"/></td>");
                 System.out.println("<td id=\"count\">" + current.count + "</td>");
                 System.out.println("<td id=\"isbn\">" + current.isbn + "</td>");
-                System.out.println("<td id=\"title\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?isbn=" + current.isbn + "\">" + current.title + "</a></td>");
+                System.out.println("<td id=\"title\" scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?isbn=" + current.isbn + "\" style=\"color: white\">" + current.title + "</a></td>");
                 System.out.println("<td id=\"price\" scope=\"col\">$" + current.price + "</td>");
-                System.out.println("<td scope=\"col\"><input type=\"text\" id=\"quantity\" value=\"1\"/></td></tr>");
+                System.out.println("<td scope=\"col\"><input type=\"text\" id=\"quantity\" value=\"1\"/></td>");
                 Iterator<String> ito = current.subjects.iterator();
                 System.out.println("<td id=\"subjects\" scope=\"col\">");
                 while(ito.hasNext()){
                     String str = ito.next();
-                    System.out.println("<a href=\"cgi-bin/hyperlink.cgi?subjects=" + str.replace(" ", "-") + "\">" + str + "</a> ");
+                    System.out.println("<a href=\"cgi-bin/hyperlink.cgi?subjects=" + str.replace(" ", "-") + "\" style=\"color: white\">" + str + "</a> ");
                 }
                 System.out.println("</td></tr>");
             }
