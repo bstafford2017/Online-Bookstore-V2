@@ -102,8 +102,9 @@ public class Search {
             if(current.isbn == isbn){
                 if(!current.subjects.contains(subject)){
                     current.subjects.add(subject);
+                } else {
+                    current.count += 1;
                 }
-                current.count += 1;
                 return true;
             }
         }
