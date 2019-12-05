@@ -29,18 +29,25 @@ public class Hyperlink3 {
                     String purchaseData = "SELECT isbn, title, price FROM book b WHERE isbn = " + rset.getString(4);
                     ResultSet result = innerstmt.executeQuery(purchaseData);
                     while(result.next()){
-                        System.out.print("<br/><br/>ISBN: " + result.getString(1) + "<br/>Title: " + result.getString(2) + "<br/>Price: " + result.getString(3) + "<br/>Quantity: ");
+                        System.out.print("<br/><br/>ISBN: " + result.getString(1) + "<br/>Title: " + result.getString(2) + "<br/>Price: $" + result.getString(3) + "<br/>Quantity: ");
                         CallableStatement cstmt = conn.prepareCall("{? = call quantity(?)}");
                         cstmt.registerOutParameter(1, Types.INTEGER);
-                        cstmt.setInt(2, Integer.parseInt(result.getString(1)));
+                        cstmt.setLong(2, Long.parseLong(result.getString(1)));
                         cstmt.execute();
                         System.out.print(cstmt.getInt(1));
+                        cstmt.close();
                     }
                     list.add(rset.getString(4));
                     result.close();
                     counter++;
                 }
             }
+            CallableStatement cstmt = conn.prepareCall("{? = call total(?)}");
+            cstmt.registerOutParameter(1, Types.DOUBLE);
+            cstmt.setString(2, args[0].trim());
+            cstmt.execute();
+            System.out.print("</br></br><b>Total Purchases: $" + cstmt.getDouble(1) + "</b>");
+            cstmt.close();
             System.out.println("</p>");
             rset.close();
             stmt.close();

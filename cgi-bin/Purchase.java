@@ -23,17 +23,34 @@ public class Purchase {
             /*
                 args[] = {username, isbn0, isbn1, ... }
             */
-            String query = "BEGIN insertPurchases(?, purchase_table(";
+            //String query = "{call insertPurchases(?, purchase_table(";
+            String query = "BEGIN insertPurchases('" + args[0].trim() + "', purchase_table(";
             for(int i = 1; i < args.length; i++){
                 if(i == args.length - 1){
+                    //query += args[i].trim() + "))}";
                     query += args[i].trim() + ")); END;";
                 } else {
                     query += args[i].trim() + ", ";
                 }
             }
             CallableStatement cstmt = conn.prepareCall(query);
+            //cstmt.setString(1, args[0].trim());
+            /*String query = "{call insertPurchases(?, purchase_table(";
+            for(int i = 1; i < args.length; i++){
+                if(i == args.length - 1){
+                    query += "?))}";
+                } else {
+                    query += "?, ";
+                }
+            }
+            CallableStatement cstmt = conn.prepareCall(query);
             cstmt.setString(1, args[0].trim());
-            cstmt.execute();
+            for(int i = 1; i < args.length; i++){
+                cstmt.setLong((i + 1), Long.parseLong(args[i].trim()));
+            }*/
+            System.out.println(query);
+            cstmt.executeUpdate();
+            cstmt.close();
         }
         catch (SQLException ex) {
             System.out.println(ex);
