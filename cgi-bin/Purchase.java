@@ -23,25 +23,17 @@ public class Purchase {
             /*
                 args[] = {username, isbn0, isbn1, ... }
             */
-            String checkNull = "SELECT COLUMN_VALUE FROM customer c, table(c.purchases)(+) WHERE username LIKE '" + args[0].trim() + "'";
-            System.out.println("\n" + checkNull);
-            ResultSet rset = stmt.executeQuery(checkNull);
-            Boolean nullTable = false;
-            if(rset.next()){
-                if(rset.getString(1) == null || rset.getString(1).equals("(null)") || rset.getString(1).equals("null") || rset.wasNull()){
-                    nullTable = true;
+            String query = "BEGIN insertPurchases(?, purchase_table(";
+            for(int i = 1; i < args.length; i++){
+                if(i == args.length - 1){
+                    query += args[i].trim() + ")); END;";
+                } else {
+                    query += args[i].trim() + ", ";
                 }
             }
-            if(nullTable){
-                String update = "UPDATE customer SET purchases = NEW purchase_table() WHERE username LIKE '" + args[0].trim() + "'";
-                System.out.println(update);
-                stmt.executeUpdate(update);
-            }
-            for(int i = 1; i < args.length; i++){
-                String query = "INSERT INTO table(SELECT purchases FROM customer WHERE username LIKE '" + args[0].trim() + "') VALUES (" + args[i].trim() + ")";
-                System.out.println(query);
-                stmt.executeUpdate(query);
-            }
+            CallableStatement cstmt = conn.prepareCall(query);
+            cstmt.setString(1, args[0].trim());
+            cstmt.execute();
         }
         catch (SQLException ex) {
             System.out.println(ex);
