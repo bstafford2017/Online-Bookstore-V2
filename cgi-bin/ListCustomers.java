@@ -21,7 +21,7 @@ public class ListCustomers {
 
             Boolean admin = ListCustomers.isAdmin(args[0].trim(), stmt);
             
-            query += "SELECT admin, c_name, username, pwd FROM customer c, table(c.purchases)(+)";
+            query += "SELECT admin, c_name, username, pwd FROM customer c";
             
             // If not admin, add WHERE to specify username
             if(!admin){
