@@ -18,13 +18,13 @@ if($pass eq 'benjamin'){
     } elsif($filename eq 'create'){
         system("/bin/cat create.cgi create.pl Create.java");
     } elsif($filename eq 'index'){
-        system("/bin/cat ../index.php");
+        system("/bin/cat source.cgi source.pl Source.java");
     } elsif($filename eq 'listbooks'){
-        system("/bin/cat ../listbooks.php listbooks.pl ListBooks.java");
+        system("/bin/cat listbooks.cgi listbooks.pl ListBooks.java");
     } elsif($filename eq 'login'){
-        system("/bin/cat ../login.php login.pl Login.java");
+        system("/bin/cat login.cgi login.pl Login.java");
     } elsif($filename eq 'signup'){
-        system("/bin/cat ../signup.php signup.pl Signup.java");
+        system("/bin/cat signup.cgi signup.pl Signup.java");
     } else {
         system("/bin/cat * ../*");
     }
