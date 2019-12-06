@@ -27,7 +27,8 @@ public class Create {
             }
 
             // Insert into books table
-            String insertBook = "INSERT INTO book (isbn, title, price, subjects) VALUES (" + args[0].trim() +", '" + args[1].trim() + "', " + args[2].trim() + ", ";
+            System.out.println(args[0]);
+            String insertBook = "INSERT INTO book (isbn, title, price, subjects) VALUES ('" + args[0].trim() +"', '" + args[1].trim() + "', " + args[2].trim() + ", ";
             if(args.length == 3){
                 insertBook += "NULL)";
             } else {

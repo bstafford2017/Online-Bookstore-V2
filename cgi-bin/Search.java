@@ -10,12 +10,12 @@ import java.util.Collections;
 
 class Tuple {
     int count;
-    long isbn;
+    String isbn;
     String title;
     double price;
     LinkedList<String> subjects = new LinkedList<>();
 
-    public Tuple(int count, long isbn, String title, double price, String subject){
+    public Tuple(int count, String isbn, String title, double price, String subject){
         this.count = count;
         this.isbn = isbn;
         this.title = title;
@@ -49,9 +49,9 @@ public class Search {
             ResultSet rset = stmt.executeQuery(query);
             int counter = 0;
             while(rset.next()){
-                System.out.println(Search.isbnAlreadyInList(list, rset.getString(4), Long.parseLong(rset.getString(1))));
-                if(!Search.isbnAlreadyInList(list, rset.getString(4), Long.parseLong(rset.getString(1)))){
-                    list.add(new Tuple(1, Long.parseLong(rset.getString(1)), rset.getString(2), Double.parseDouble(rset.getString(3)), rset.getString(4)));
+                System.out.println(Search.isbnAlreadyInList(list, rset.getString(4), rset.getString(1)));
+                if(!Search.isbnAlreadyInList(list, rset.getString(4), rset.getString(1))){
+                    list.add(new Tuple(1, rset.getString(1), rset.getString(2), Double.parseDouble(rset.getString(3)), rset.getString(4)));
                 }
             }
             Collections.sort(list, new Comparator<Tuple>(){
@@ -94,12 +94,12 @@ public class Search {
     // True = do not add to list (already in)
     // False = add to list (not in list yet)
     // Increments count if found in list
-    public static boolean isbnAlreadyInList(LinkedList<Tuple> list, String subject, long isbn){
+    public static boolean isbnAlreadyInList(LinkedList<Tuple> list, String subject, String isbn){
         // Check if 'subject' is in list
         Iterator<Tuple> it = list.iterator();
         while(it.hasNext()){
             Tuple current = it.next();
-            if(current.isbn == isbn){
+            if(current.isbn.equals(isbn)){
                 if(!current.subjects.contains(subject)){
                     current.subjects.add(subject);
                 } else {

@@ -15,7 +15,7 @@ public class Hyperlink {
         Connection conn = ods.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            String query = "SELECT isbn, title, price, COLUMN_VALUE FROM book b, table(b.subjects)(+) WHERE isbn = " + args[0].trim();
+            String query = "SELECT isbn, title, price, COLUMN_VALUE FROM book b, table(b.subjects)(+) WHERE isbn LIKE '" + args[0].trim() + "'";
             ResultSet rset = stmt.executeQuery(query);
             int counter = 0;
             while(rset.next()){

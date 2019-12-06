@@ -18,7 +18,7 @@ public class UpdatePrice {
         try {
             Statement stmt = conn.createStatement();
             for(int i = 0; i < args.length; i += 2){
-                stmt.executeUpdate("UPDATE book SET price = " + args[i + 1] + " WHERE isbn = " + args[i]);
+                stmt.executeUpdate("UPDATE book SET price = " + args[i + 1] + " WHERE isbn LIKE '" + args[i] + "'");
             }
             stmt.close();
         }

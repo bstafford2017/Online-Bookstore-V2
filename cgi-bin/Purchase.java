@@ -28,9 +28,9 @@ public class Purchase {
             for(int i = 1; i < args.length; i++){
                 if(i == args.length - 1){
                     //query += args[i].trim() + "))}";
-                    query += args[i].trim() + ")); END;";
+                    query += "'" + args[i].trim() + "')); END;";
                 } else {
-                    query += args[i].trim() + ", ";
+                    query += "'" + args[i].trim() + "', ";
                 }
             }
             CallableStatement cstmt = conn.prepareCall(query);

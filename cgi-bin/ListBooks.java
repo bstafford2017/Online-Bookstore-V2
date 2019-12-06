@@ -29,7 +29,7 @@ public class ListBooks {
                     System.out.println("<tr id=\"" + rowCounter + "\" scope=\"col\">");
                     System.out.println("<td scope=\"col\">" + rset.getString(1) + "</td>");
                     System.out.println("<td scope=\"col\"><a href=\"cgi-bin/hyperlink.cgi?isbn=" + rset.getString(1) + "\" style=\"color: white;\">" + rset.getString(2) + "</a></td>");
-                    System.out.println("<td scope=\"col\">" + rset.getString(3) + "</td></tr>");
+                    System.out.println("<td scope=\"col\">$" + rset.getString(3) + "</td></tr>");
                 }
                 rowCounter++;
             }
